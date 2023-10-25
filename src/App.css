@@ -9,12 +9,22 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
+.punk{
+  font-family: "Arial Black";
+  font-size: calc(16px+3vmin);
+}
+
+.fire{
+  width: 10%;
+  height: 10%;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #472020;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './KOTIK.png';
 import './App.css';
+import fire from './fire.gif'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+        <p className='punk'>
+         WE ARE PUNKOTIKI
         </p>
         <a
           className="App-link"
@@ -18,6 +19,8 @@ function App() {
         >
           Learn React
         </a>
+        <img src={fire} className='fire'/>
+        <p>(типа панки типи крутые)</p>
       </header>
     </div>
   );
