@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './KOTIK.png';
 import './App.css';
+import Button from './Button_comp';
 import fire from './fire.gif'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         </a>
         <img src={fire} className='fire'/>
         <p>(типа панки типи крутые)</p>
+        <Button/>
       </header>
     </div>
   );
