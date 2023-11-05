@@ -1,31 +1,27 @@
-import React from 'react';
-import logo from './KOTIK.png';
+import React, { Fragment } from 'react';
 import './App.css';
-import Button from './Button_comp';
-import fire from './fire.gif'
+import './css/Navbar.css';
+
+import { BrowserRouter, Route, Routes  } from 'react-router-dom';
+import Layout from './components/Layout';
+import MainPage from './pages/main';
+import Navbar from './components/Navbar';
+import Account from './pages/account';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className='punk'>
-         WE ARE PUNKOTIKI
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <img src={fire} className='fire'/>
-        <p>(типа панки типи крутые)</p>
-        <Button/>
-      </header>
-    </div>
-  );
+    
+    <BrowserRouter>
+      <Routes>
+      <Route path='/' element={<Layout/>}>
+        <Route index element={<MainPage/>}/>
+        <Route path='/account' element={<Account/>}/>
+      </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
