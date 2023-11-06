@@ -1,4 +1,6 @@
-
+.navbar{
+    margin-bottom: 60px;
+}
 ul {
     width: 100%;
     list-style-type: none;

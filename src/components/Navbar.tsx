@@ -7,12 +7,15 @@ import { Linter } from 'eslint';
 function Navbar() {
     return (
             <Fragment>
-                <ul>
+                <ul className='navbar'>
                     <li className="logo">
                         <img src={logo} alt=''></img>
                     </li>
                     <li>
                         <Link className="link page" to='/' >Главная</Link>
+                    </li>
+                    <li>
+                        <Link className="link page" to='/create' >Создать опрос</Link>
                     </li>
                     <li className='account'>
                         <Link className="link" to="/account">ФИО</Link>
