@@ -1,8 +1,8 @@
 import { Fragment } from "react"
 
-const CreateSurveyPage = () => {
+const CreateSurveyPage = () : JSX.Element => {
     return (
-        <Fragment>
+        <>
             <div className="page-container">
                 <h1>Creatin a survey</h1>
                 <div className="element-container">
@@ -50,7 +50,7 @@ const CreateSurveyPage = () => {
                     <button>+</button>
                 </div>
             </div>
-        </Fragment>
+        </>
     )
 }
 
