@@ -1,0 +1,45 @@
+body {
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  background-color: #eee;
+  margin: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 48px 0 48px;
+  background-color: #fff;
+  height: 90px;
+}
+
+li {
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 32px 75px 0 0;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+}
+
+.active {
+    text-decoration: underline;
+    text-decoration-color: #005bff;
+    text-underline-offset: 20px;
+}
+
+.nav-right {
+  float: right;
+}
+
+.nav-right a {
+  padding: 32px 62px 0 0;
+}
+
+.nav-left a {
+  padding: 27px 119px 0 0;
+}
