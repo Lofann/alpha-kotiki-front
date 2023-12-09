@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?l5ghmy');
-  src:  url('fonts/icomoon.eot?l5ghmy#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?l5ghmy') format('truetype'),
-    url('fonts/icomoon.woff?l5ghmy') format('woff'),
-    url('fonts/icomoon.svg?l5ghmy#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?t1laim');
+  src:  url('fonts/icomoon.eot?t1laim#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?t1laim') format('truetype'),
+    url('fonts/icomoon.woff?t1laim') format('woff'),
+    url('fonts/icomoon.svg?t1laim#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,42 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-cross:before {
+  content: "\e903";
+}
+.icon-copy:before {
+  content: "\e904";
+}
+.icon-settings:before {
+  content: "\e905";
+}
+.icon-checkbox:before {
+  content: "\e906";
+}
+.icon-radio-button:before {
+  content: "\e907";
+}
+.icon-swipe-to-left:before {
+  content: "\e908";
+}
+.icon-swipe-to-right:before {
+  content: "\e909";
+}
+.icon-close:before {
+  content: "\e90a";
+}
+.icon-save:before {
+  content: "\e90b";
+}
+.icon-trash:before {
+  content: "\e90c";
+}
+.icon-visibility:before {
+  content: "\e90d";
+}
+.icon-img:before {
+  content: "\e902";
+}
 .icon-logo:before {
   content: "\e901";
   color: #005bff;
