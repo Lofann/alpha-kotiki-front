@@ -1,97 +1,7 @@
-body {
-  position: relative;
-  font-family: "Open Sans", sans-serif;
-  font-size: 20px;
-  background-color: #eee;
-  margin: 0;
-}
 
-ul {
-  list-style-type: none;
-}
-
-.navbar {
-  margin: 0;
-  padding: 0 48px 0 48px;
-  background-color: #fff;
-  height: 90px;
-}
-
-li {
-  float: left;
-}
-
-a {
-  display: block;
-  padding: 32px 75px 0 0;
-  color: #000;
-  text-align: center;
-  text-decoration: none;
-}
-
-.active {
-    text-decoration: underline;
-    text-decoration-color: #005bff;
-    text-underline-offset: 20px;
-}
-
-.nav-right {
-  float: right;
-}
-
-.nav-right a {
-  padding: 32px 62px 0 0;
-}
-
-.nav-left a {
-  padding: 27px 119px 0 0;
-}
-
-.container {
-  background-color: #fff;
-  width: 90%;
-  height: fit-content;
-  position: absolute;
-  border-radius: 39px;
-  padding-bottom: 83px;
-}
-
-.wrapper {
-  margin: 0;
-  padding-top: 48px;
-  padding-right: 88px;
-  padding-left: 88px;
-}
-
-.breadcrumbs {
-  color: #757575;
-  padding-top: 40px;
-  padding-left: 60px;
-  font-size: 16px;
-}
-
-.breadcrumbs-item {
-  padding-right: 8px;
-}
-
-h1 {
-  padding-top: 20px;
-  padding-left: 60px;
-  font-size: 36px;
-  font-weight: normal;
-  margin-bottom: 0;
-}
-
-h2 {
-  margin-top: 8px;
-  padding-left: 60px;
-  font-weight: lighter;
-  font-size: 20px;
-}
 
 .survey-constructor {
   font-size: 16px;
-  padding-left: 60px;
 }
 
 .survey-name {
@@ -118,10 +28,7 @@ h2 {
   cursor: pointer;
 }
 
-::placeholder {
-  color: #9E9E9E;
-  font-size: 14px;
-}
+
 
 .memo {
   font-size: 12px;
@@ -144,14 +51,7 @@ h2 {
   cursor: pointer;
 }
 
-.row {
-  display: flex;
-}
 
-.col {
-  flex: 1;
-  margin-right: 100px;
-}
 
 .survey-price {
   padding-top: 12px;
