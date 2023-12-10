@@ -6,8 +6,11 @@ body {
   margin: 0;
 }
 
-nav ul {
+ul {
   list-style-type: none;
+}
+
+.navbar {
   margin: 0;
   padding: 0 48px 0 48px;
   background-color: #fff;
@@ -42,4 +45,380 @@ a {
 
 .nav-left a {
   padding: 27px 119px 0 0;
+}
+
+.container {
+  background-color: #fff;
+  width: 90%;
+  height: fit-content;
+  position: absolute;
+  border-radius: 39px;
+  padding-bottom: 83px;
+}
+
+.wrapper {
+  margin: 0;
+  padding-top: 48px;
+  padding-right: 88px;
+  padding-left: 88px;
+}
+
+.breadcrumbs {
+  color: #757575;
+  padding-top: 40px;
+  padding-left: 60px;
+  font-size: 16px;
+}
+
+.breadcrumbs-item {
+  padding-right: 8px;
+}
+
+h1 {
+  padding-top: 20px;
+  padding-left: 60px;
+  font-size: 36px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-top: 8px;
+  padding-left: 60px;
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.survey-constructor {
+  font-size: 16px;
+  padding-left: 60px;
+}
+
+.survey-name {
+  padding-top: 12px;
+}
+
+.required-field {
+  color: #D93025;
+}
+
+.field:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px #005bff;
+}
+
+.name-field {
+  margin-top: 4px;
+  height: 60px;
+  width: 756px;
+  border-radius: 10px;
+  border: 1px solid #757575;
+  padding-left: 16px;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: #9E9E9E;
+  font-size: 14px;
+}
+
+.memo {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.survey-description {
+  margin-top: 33px;
+}
+
+.description-field {
+  margin-top: 4px;
+  height: 240px;
+  width: 756px;
+  border-radius: 10px;
+  border: 1px solid #757575;
+  padding-left: 16px;
+  padding-top: 20px;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+  margin-right: 100px;
+}
+
+.survey-price {
+  padding-top: 12px;
+}
+
+.price-field {
+  margin-top: 4px;
+  width: 290px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #757575;
+  padding-left: 16px;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+
+.survey-time {
+  padding-top: 33px;
+}
+
+.time-field {
+  margin-top: 4px;
+  width: 290px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #757575;
+  padding-left: 16px;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+
+.survey-date {
+  padding-top: 33px;
+}
+
+.date-field {
+  margin-top: 4px;
+  width: 344px;
+  height: 52px;
+  border-radius: 10px;
+  border: 1px solid #757575;
+  padding-left: 16px;
+  padding-right: 10px;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+}
+
+.survey-audience {
+  padding-top: 33px;
+  padding-bottom: 5px;
+}
+
+.audience-field {
+  margin-bottom: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.survey-popularity {
+  padding-top: 33px;
+  padding-bottom: 5px;
+}
+
+.popularity-field {
+  margin-bottom: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.real-radio {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.custom-radio {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #c4c4c4;
+  vertical-align: top;
+  margin-right: 10px;
+  margin-bottom: 8px;
+}
+
+.custom-radio::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 48%;
+  top: 48%;
+  transform: translate(-48%, -48%) scale(0);
+  transition: 0.2s ease-in;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+}
+
+.real-radio:checked + .custom-radio::before {
+  transform: translate(-48%, -48%) scale(1);
+}
+
+.real-checkbox {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.custom-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #c4c4c4;
+  vertical-align: top;
+  margin-right: 10px;
+  margin-bottom: 8px;
+}
+
+.custom-checkbox::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  left: 50%;
+  top: 50%;
+  transition: 0.2s ease-in;
+  transform: translate(-50%, -50%) scale(0);
+  background-image: url("../img/icons/check.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.real-checkbox:checked + .custom-checkbox::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.survey-img {
+  margin-top: 33px;
+}
+
+.img-field {
+  position: relative;
+  width: 273px;
+  height: 290px;
+  border-radius: 10px;
+  border: 1px solid #757575;
+  margin-top: 5px;
+}
+
+.custom-img-field {
+  position: absolute;
+  top: 20px;
+  left: 22px;
+  height: 140px;
+  width: 230px;
+  border-radius: 10px;
+  border: 1px dashed #005bff;
+}
+
+.img-info {
+  position: absolute;
+  top: 58px;
+  left: 30px;
+  font-weight: 600;
+  color: #000;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.real-img-field {
+  position: absolute;
+  top: 21px;
+  left: 23px;
+  width: 230px;
+  height: 140px;
+  opacity: 0;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.img-field .icon-img {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.img-field .another-option {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 170px;
+  left: 69px;
+}
+
+.or-block {
+  position: absolute;
+  color: #747474;
+  top: 200px;
+  left: 124px;
+}
+
+.another-img-field {
+  position: absolute;
+  top: 230px;
+  left: 22px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  height: 42px;
+  width: 230px;
+}
+
+.another-img-field .text{
+  position: absolute;
+  top: 11px;
+  left: 30px;
+}
+
+.survey-buttons {
+  margin-top: 83px;
+}
+
+.button-return {
+  width: 320px;
+  height: 67px;
+  color: #fff;
+  font-size: 24px;
+  background-color: #c5c5c5;
+  border-radius: 40px;
+  border: none;
+  margin-left: 112px;
+  margin-right: 402px;
+  cursor: pointer;
+}
+
+.button-next {
+  width: 320px;
+  height: 67px;
+  color: #fff;
+  font-size: 24px;
+  background-color: #005bff;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-return:hover {
+  background-color: #9a9a9a;
+}
+
+.button-return:active {
+  background-color: #7a7a7a;
+}
+
+.button-next:hover {
+  background-color: #004ad3;
+}
+
+.button-next:active {
+  background-color: #0641ae;
 }

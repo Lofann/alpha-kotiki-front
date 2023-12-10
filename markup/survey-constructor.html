@@ -7,26 +7,144 @@
     <link rel="stylesheet" href="img/icomoon/style.css" />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li class="nav-left"><a href="#"><i class="icon-logo" style="font-size: 32px;"></i></a></li>
-        <li class="nav-center">
-          <ul>
-            <li><a href="#">Главная страница</a></li>
-            <li><a href="#">Интервью</a></li>
-            <li><a href="#" class="active">Опросы</a></li>
+    <header>
+      <nav>
+        <ul class ="navbar">
+          <li class="nav-left"><a href="#"><i class="icon-logo" style="font-size: 32px;"></i></a></li>
+          <li class="nav-center">
+            <ul>
+              <li><a href="#">Главная страница</a></li>
+              <li><a href="#">Интервью</a></li>
+              <li><a href="#" class="active">Опросы</a></li>
+            </ul>
+          </li>
+          <li class="nav-right">
+            <ul>
+              <li><a href="#"><i class="icon-bell" style="font-size: 24px;"></i></a></li>
+              <li><a href="#">Иван Иванов</a></li>
+              <li><a href="#">Выйти</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="wrapper">
+      <section class="container">
+        <main>
+          <ul class ="breadcrumbs">
+            <li class="breadcrumbs-item">Личный кабинет</li>
+            <li class="breadcrumbs-item">/</li>
+            <li class="breadcrumbs-item">Создать новый опрос</li>
+            <li class="breadcrumbs-item">/</li>
+            <li class="breadcrumbs-item">Редактор вопросов</li>
           </ul>
-        </li>
-        <li class="nav-right">
-          <ul>
-            <li><a href="#"><i class="icon-bell" style="font-size: 24px;"></i></a></li>
-            <li><a href="#">Иван Иванов</a></li>
-            <li><a href="#">Выйти</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <main>
-    </main>
+          <h1>Создание нового опроса</h1>
+          <h2>Заполняем основную информацию</h2>
+          <form class="survey-constructor">
+            <div class="row">
+              <div class="col">
+                <div class="survey-name">
+                  <div>
+                    <label>Название<span class="required-field">*</span></label>
+                  </div>
+                  <div>
+                    <input type="text" class="field name-field" placeholder="Введите название" required>
+                    <p class="required-field memo">Поля, отмеченные знаком * , обязательны для заполнения </p>
+                  </div>
+                </div>
+                <div class="survey-description">
+                  <div>
+                    <label>Описание</label>
+                  </div>
+                  <div>
+                    <textarea class="field description-field" type="text" placeholder="Введите описание"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="survey-price">
+                  <div>
+                    <label>Стоимость<span class="required-field">*</span></label>
+                  </div>
+                  <div>
+                    <input type="number" class="field price-field" placeholder="Введите стоимость в рублях" required>
+                  </div>
+                </div>
+                <div class="survey-time">
+                  <div>
+                    <label>Длительность опроса<span class="required-field">*</span></label>
+                  </div>
+                  <div>
+                    <input type="time" class="field time-field" placeholder="Длительность опроса" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="survey-date">
+                <label>Дата опроса<span class="required-field">*</span></label>
+              </div>
+              <div>
+                <input type="date" class="field date-field" required>
+              </div>
+            </div>
+            <div>
+              <div class="survey-audience">
+                <label>Аудитория<span class="required-field">*</span></label>
+              </div>
+              <div>
+                <label class="audience-field">
+                  <input class="audience-field real-checkbox" type="checkbox" value="audience">
+                  <span class="custom-checkbox"></span>
+                  Мужчины
+                </label><br>
+                <label class="audience-field">
+                  <input class="audience-field real-checkbox" type="checkbox" value="audience">
+                  <span class="custom-checkbox"></span>
+                  Женщины
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="survey-popularity">
+                <label>Вывести опрос в <label style="color: #005bff;">"Полуярное"</label>?<span class="required-field">*</span></label>
+              </div>
+              <div>
+                <label class="popularity-field">
+                  <input class="real-radio" name="popularity" type="radio" value="is-popular">
+                  <span class="custom-radio"></span>
+                  Да
+                </label><br>
+                <label class="popularity-field">
+                  <input class="real-radio" name="popularity" type="radio" value="is-popular">
+                  <span class="custom-radio"></span>
+                  Нет
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="survey-img">
+                <label>Иконка для опроса</label>
+                <div class="img-field">
+                  <div class="custom-img-field">
+                    <div class="img-info">Перетащите фото сюда</div>
+                  </div>
+                  <input class="real-img-field" type="file" value="iconImg">
+                  <div class="another-option">
+                    <i class="icon-img"></i><div>Выберите фото</div>
+                  </div>
+                  <div class="or-block">или</div>
+                  <div class="another-img-field"><div class="text">Вставьте фото или URL</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="survey-buttons">
+              <button type="reset" class="button-return">Вернуться</button>
+              <button type="submit" class="button-next">Далее</button>
+            </div>
+          </form>
+        </main>
+      </section>
+    </div>
   </body>
 </html>
