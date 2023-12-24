@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-//Шапка с навигационной панелью
+// Шапка с навигационной панелью
 
 export default function Header(): JSX.Element {
   return(
