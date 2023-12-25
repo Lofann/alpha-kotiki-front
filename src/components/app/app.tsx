@@ -13,13 +13,18 @@ export default function App({surveys}: AppProps): JSX.Element {
     <BrowserRouter>
       <Routes>
         <Route
-          path={AppRoute.Surveys}
-          element={
-            <PrivateRoute authorizationStatus={authorizationStatus}>
-              <AllSurvey surveys={surveys}/>
-            </PrivateRoute>
-          }
+          path={AppRoute.Main}
+          element={<></>}
         />
+        <Route path={AppRoute.Surveys}>
+          <Route 
+            index element={
+              <PrivateRoute authorizationStatus={authorizationStatus}>
+                <AllSurvey surveys={surveys}/>
+              </PrivateRoute>
+            }
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
