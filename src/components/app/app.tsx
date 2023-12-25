@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes  } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import AllSurvey from '../../pages/all-survey-page/all-survey-page';
+import MainPage from '../../pages/main-page/main-page';
 import AppProps from './app.props';
 import PrivateRoute from '../private-route/private-route';
 
@@ -14,7 +15,7 @@ export default function App({surveys}: AppProps): JSX.Element {
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<></>}
+          element={<MainPage/>}
         />
         <Route path={AppRoute.Surveys}>
           <Route 
