@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { AppRoute } from "../../const";
+import { NavLink } from "react-router-dom";
 
 // Шапка с навигационной панелью
 export default function Header(): JSX.Element {
@@ -14,15 +16,28 @@ export default function Header(): JSX.Element {
           <li className="nav-center">
             <ul>
               <li>
-                <Link to="#">Главная страница</Link>
+                <NavLink 
+                  to={AppRoute.Main} 
+                  className={({isActive}) => isActive? "active" : ""}
+                >
+                  Главная страница
+                </NavLink>
               </li>
               <li>
-                <Link to="#">Интервью</Link>
+                <NavLink
+                  to={`/${AppRoute.NotFound}`}
+                  className={({isActive}) => isActive? "active" : ""}
+                >
+                  Интервью
+                </NavLink>
               </li>
               <li>
-                <Link to="#" className="active">
+                <NavLink
+                  to={`/${AppRoute.Surveys}`}
+                  className={({isActive}) => isActive? "active" : ""}
+                >
                   Опросы
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </li>
