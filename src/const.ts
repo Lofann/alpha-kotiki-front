@@ -9,3 +9,11 @@ export enum AppRoute {
   Profile = 'profile',
   NotFound = '*',
 }
+
+// Статусы авторизации
+
+export enum AuthorizationStatus {
+  Auth = 'AUTH',
+  NoAuth = 'NO_AUTH',
+  Unknown = 'UNKNOWN',
+}
