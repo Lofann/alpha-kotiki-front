@@ -8,7 +8,7 @@ export default function SurveyCardsList({surveys}: SurveyCardsListProps): JSX.El
   return (
     <div className="survey-cards">
       {surveys.map((survey) => (
-        <SurveyCard survey={survey}/>
+        <SurveyCard key={survey.id} survey={survey}/>
       ))}
     </div>
   )
