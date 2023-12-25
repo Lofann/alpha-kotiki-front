@@ -1,5 +1,4 @@
 // Маршруты в приложении
-
 export enum AppRoute {
   Main = '/',
   Login = 'login',
@@ -11,7 +10,6 @@ export enum AppRoute {
 }
 
 // Статусы авторизации
-
 export enum AuthorizationStatus {
   Auth = 'AUTH',
   NoAuth = 'NO_AUTH',

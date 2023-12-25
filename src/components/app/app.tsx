@@ -5,7 +5,6 @@ import AppProps from './app.props';
 
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация
-
 export default function App({surveys}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
