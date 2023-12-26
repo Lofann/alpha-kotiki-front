@@ -33,6 +33,7 @@ main{
 
 .search-field {
     font-family: "Open Sans", sans-serif;
+    
     width: 100%;
     border: 0;
     margin-bottom: 16px;
@@ -68,7 +69,8 @@ main{
     cursor: pointer;
     padding-top: 5px;
     padding-bottom: 5px;
-    justify-content: center;flex-shrink: 0;
+    justify-content: center;
+    flex-shrink: 0;
     flex-wrap: wrap;
 }
 
