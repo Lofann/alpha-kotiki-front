@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes  } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import AllSurvey from '../../pages/all-survey-page/all-survey-page';
 import MainPage from '../../pages/main-page/main-page';
+import SurveyConstructorFirstStep from '../../pages/survey-constructor-first-step/survey-constructor-first-step';
 import AppProps from './app.props';
 import PrivateRoute from '../private-route/private-route';
 
@@ -26,6 +27,10 @@ export default function App({surveys}: AppProps): JSX.Element {
             }
           />
         </Route>
+        <Route
+          path={AppRoute.Сonstructor}
+          element={<SurveyConstructorFirstStep/>}
+        />
       </Routes>
     </BrowserRouter>
   )
