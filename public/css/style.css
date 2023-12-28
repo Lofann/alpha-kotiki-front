@@ -8,7 +8,6 @@ body {
 
   h1 {
     padding-top: 20px;
-    padding-left: 60px;
     font-size: 36px;
     font-weight: normal;
     margin-bottom: 0;
@@ -16,7 +15,6 @@ body {
   
   h2 {
     margin-top: 8px;
-    padding-left: 60px;
     font-weight: lighter;
     font-size: 20px;
   }  
@@ -28,10 +26,6 @@ body {
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-  }
-  
-  input{
-
   }
 
   .row {
@@ -69,7 +63,7 @@ body {
   .breadcrumbs {
     color: #757575;
     padding-top: 40px;
-
+    padding-left: 0px;
     font-size: 16px;
   }
   
