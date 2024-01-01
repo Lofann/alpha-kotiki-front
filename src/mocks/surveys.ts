@@ -1,7 +1,6 @@
 import SurveyCards from "../types/survey-cards";
 
-// Моковые данные для превью-карточек с опросами
-
+//Моковые данные для превью-карточек с опросами
 export const surveys: SurveyCards = [
   {
     id: '0',
@@ -12,7 +11,7 @@ export const surveys: SurveyCards = [
   },
   {
     id: '1',
-    name: 'Язык программирования',
+    name: 'Программирование',
     description: 'Мнение экспертов в сфере IT о Pacsal',
     time: '15',
     price: 200
@@ -33,7 +32,7 @@ export const surveys: SurveyCards = [
   },
   {
     id: '4',
-    name: 'Лучший институт УрФУ',
+    name: 'Лучший институт',
     description: 'Опрос с заранее известным верным ответом',
     time: '25',
     price: 400

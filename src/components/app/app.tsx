@@ -3,12 +3,16 @@ import { AppRoute, AuthorizationStatus } from '../../const';
 import AllSurvey from '../../pages/all-survey-page/all-survey-page';
 import MainPage from '../../pages/main-page/main-page';
 import SurveyConstructorFirstStep from '../../pages/survey-constructor-first-step/survey-constructor-first-step';
-import AppProps from './app.props';
 import PrivateRoute from '../private-route/private-route';
+import { useAppDispatch, useAppSelector } from '../../hooks/store';
+import { getSurveys } from '../../store/action';
 
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация
-export default function App({surveys}: AppProps): JSX.Element {
+export default function App(): JSX.Element {
+  const dispatch = useAppDispatch();
+  dispatch(getSurveys())
+  const surveys = useAppSelector((state) => state.surveys)
   const authorizationStatus = AuthorizationStatus.Auth;
 
   return (
