@@ -7,8 +7,8 @@ export default function SurveyCard({survey}: SurveyCardProps): JSX.Element {
   const navigate = useNavigate();
 
   const getDescription = (description: string) => {
-    if (description.length > 47) {
-      return description.slice(0, 47) + '...';
+    if (description.length > 30) {
+      return description.slice(0, 30) + '...';
     }
     return description
   }
