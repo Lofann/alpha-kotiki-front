@@ -1,0 +1,40 @@
+.flexbox {
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: column;
+ justify-content: flex-start;
+}
+
+.subflexbox {
+  display: flexbox;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.survey-section {
+  padding-top: 0px;
+  text-align: left;
+  padding-left: 82px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.survey-description {
+  max-width: 678px;
+  font-size: 16px;
+}
+
+.survey-details {
+  font-size: 20px;
+}
+
+.icon-arrows-left {
+  color: #757575;
+  text-align: left;
+  padding-left: 0px;
+  font-size: 29px;
+}
+
+.align-right {
+  text-align: right;
+}

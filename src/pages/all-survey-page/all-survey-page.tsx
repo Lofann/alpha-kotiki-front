@@ -4,6 +4,7 @@ import { SurveyCard } from "../../types/survey-card";
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { getSurveys } from "../../store/action";
 import { ChangeEvent, useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 // Фильтрация по поиску
 const filterBySearch = (searchValue: string, surveys: SurveyCard[]) => {
@@ -45,6 +46,9 @@ export default function AllSurvey() :JSX.Element {
 
   return(
     <>
+      <Helmet>
+        <title>Доступные опросы</title>
+      </Helmet>
       <Header/>
       <div className="wrapper">
         <section className="container">

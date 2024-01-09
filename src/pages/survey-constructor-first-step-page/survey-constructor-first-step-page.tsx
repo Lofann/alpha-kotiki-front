@@ -1,5 +1,6 @@
 import Header from "../../components/header/header"
 import { FormEvent, useRef, useState } from "react"
+import { Helmet } from "react-helmet-async";
 
 //Компонент с созданием опроса(описание)
 export default function SurveyConstructorFirstStep(): JSX.Element {
@@ -32,6 +33,9 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
 
   return (
     <>
+      <Helmet>
+        <title>Создание опроса</title>
+      </Helmet>
       <Header/>
       <div className="wrapper">
         <section className="container">
