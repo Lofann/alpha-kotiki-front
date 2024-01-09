@@ -145,4 +145,5 @@
     flex-shrink: 0;
     border-radius: 20px;
     background: #005BFF;
+    cursor: pointer;
 }
