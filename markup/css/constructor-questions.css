@@ -1,3 +1,5 @@
+
+
 .left-title {
     text-align: left;
     margin-bottom: 20px;
@@ -5,6 +7,8 @@
 
 .question-list{
     max-width: 800px; 
+    overflow: visible;
+    position: relative;
 }
 
 .question {
@@ -236,4 +240,102 @@ input:checked + .slider:before {
     width: 38px;
     color:#FFF;
     font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.prev-next-buttons{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 46px;
+}
+
+.prev{
+    background: #C5C5C5;
+}
+
+
+.next{
+    background: #005BFF;
+}
+
+.prev-next-btn{
+    border-radius: 40px;
+    color: #FFF;
+    align-items: center;
+    border: 0px #FFF solid;
+    padding: 8px 16px;
+    height: 60px;
+    width: 300px;
+    font-size: 24px;
+}
+
+.absolute-control-menu{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: 50%;
+    left: 100%;
+    visibility: hidden;
+}
+
+.create-survey{
+
+}
+
+.control-menu{
+    position: sticky;
+    top: 0;
+    border:1px solid #005BFF;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    gap:20px;
+    padding: 19px;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 300px;
+    overflow: auto
+}
+
+.menu{
+    border: 0px solid #005BFF;
+    overflow: auto ;
+}
+
+.control-buttons{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    gap:15px;
+
+}
+
+.control-btn{
+    text-align: center;
+    padding: 9px 50px 9px 50px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.save-btn{
+    color: #FFF;
+    background-color: #005BFF;   
+    border: 0px solid #005BFF;
+}
+
+
+.view-btn{
+    color: #005BFF;
+    background-color: #fff;   
+    border: 1px solid #005BFF;
 }
