@@ -1,8 +1,10 @@
 import Header from "../../components/header/header";
 import SurveyCardsList from "../../components/survey-cards-list/survey-cards-list";
 import { SurveyCard } from "../../types/survey-card";
-import AllSurveysPageProps from "./all-survey-page.props";
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
+import { getSurveys } from "../../store/action";
 import { ChangeEvent, useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 // Фильтрация по поиску
 const filterBySearch = (searchValue: string, surveys: SurveyCard[]) => {
@@ -14,7 +16,11 @@ const filterBySearch = (searchValue: string, surveys: SurveyCard[]) => {
 };
 
 // Страница со всеми опросами
-export default function AllSurvey({surveys}: AllSurveysPageProps) :JSX.Element {
+export default function AllSurvey() :JSX.Element {
+  const dispatch = useAppDispatch();
+  dispatch(getSurveys())
+  const surveys = useAppSelector((state) => state.surveys)
+
   // Состояние поиска и функция для обновления
   const [searchValue, setSearchValue] = useState('');
   // Состояние списка с опросами, соответствующими поиску
@@ -40,6 +46,9 @@ export default function AllSurvey({surveys}: AllSurveysPageProps) :JSX.Element {
 
   return(
     <>
+      <Helmet>
+        <title>Доступные опросы</title>
+      </Helmet>
       <Header/>
       <div className="wrapper">
         <section className="container">
