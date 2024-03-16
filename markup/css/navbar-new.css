@@ -1,0 +1,103 @@
+body {
+  font-family: Open Sans, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #EEEEEE;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.wrapper {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  box-shadow: 0px 2px 50px rgba(0,0,0,0.05);
+}
+
+.contain-1 {
+  max-width: 1320px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contain-2 {
+  max-width: 1264px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top {
+  padding: 31px 0;
+  height: auto;
+  background-color: #FFFFFF;
+}
+
+.top-w {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 20px;
+}
+
+.top-w-2 {
+  max-width: 455px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-w-3 {
+  max-width: 318px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: auto;
+
+  .icon-logo {
+    font-size: 36px;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.top-item {
+  &:hover {
+    color: #005BFF;
+  }
+
+  &.active {
+    text-decoration: underline #005BFF 2px;
+    text-underline-offset: 6px;
+
+    &:hover {
+      color: #000000;
+    }
+  }
+}
