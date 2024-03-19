@@ -1,0 +1,97 @@
+.main {
+  .top{
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+.timer {
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  width: 219px;
+  justify-content: space-between;
+}
+
+.time {
+  color: #005BFF;
+}
+
+.question-block {
+  margin-top: 40px;
+
+  .questions-list {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .q-and-a {
+    margin-top: 30px;
+  }
+}
+
+.question-item {
+  background-color: #EEEEEE;
+  border-radius: 5px;
+  font-size: 24px;
+
+  padding: 6px 18px;
+  margin-right: 16px;
+
+  &.active {
+    border: solid 2px #005BFF;
+  }
+  
+  &.done {
+    background-color: #005BFF;
+    
+    .question-link {
+      color: #FFFFFF;
+    }
+  }
+}
+
+.question {
+  font-size: 24px;
+}
+
+.answers {
+  margin-top: 4px;
+
+  .form-check {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .form-select {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+}
+
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+
+  .btn-return {
+    margin-right: 40px;
+  }
+}
+
+.progress {
+  margin-top: 40px;
+}
+
+.instructions {
+  font-size: 12px;
+  color: #757575;
+}
