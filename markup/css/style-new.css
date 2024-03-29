@@ -1,3 +1,12 @@
+:root {
+  --main-light-gray-color: #EEEEEE;
+  --main-dark-gray-color: #757575;
+  --main-blue-color: #005BFF;
+  --main-black-color: #000000;
+  --main-white-color: #FFFFFF;
+  --box-gray-shadow-color: rgba(0,0,0,0.05);
+}
+
 body {
   font-family: Open Sans, sans-serif;
   font-style: normal;
@@ -5,16 +14,16 @@ body {
   font-size: 10px;
 
   position: relative;
-  min-height: 100vh;
-  width:100vw;
-  overflow-x:hidden;
   margin: 0;
-  background-color: #EEEEEE;
+  min-height: 100vh;
+  margin-right: calc(-1 * (100vw - 100%));
+  overflow-x: hidden;
+  background-color: var(--main-light-gray-color);
 }
 
 a {
   text-decoration: none;
-  color: #000000;
+  color: var(--main-black-color);
 }
 
 .wrapper {
@@ -28,35 +37,40 @@ a {
 }
 
 .contain-1 {
-  max-width: 1320px;
+  max-width: 1160px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .contain-2 {
-  max-width: 1264px;
+  max-width: 1260px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .main {
-  background-color: #FFFFFF;
+  background-color: var(--main-white-color);
   border-radius: 20px;
-  box-shadow: 0px 8px 25px rgba(0,0,0,0.05);
-  padding: 50px;
+  box-shadow: 0px 8px 25px var(--box-gray-shadow-color);
+
+  padding: 64px 50px; 
+  /*64px - отступ до хлебных крошек, для заголовков добавляем отдельно
+    Если есть хлебные крошки, то верхний отступ у заголовка 20px
+    Если нет, то верхний отступ у заголовка 36px
+    Сумарный отступ от контейнера до заголовка - 100px в любом из случаев*/
   display: flex;
   flex-direction: column;
   justify-content: start;
-  max-width: 1264px;
+  max-width: 1260px;
 }
 
 .breadcrumb {
   margin-bottom: 0px;
 
   .breadcrumb-item {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 
@@ -65,25 +79,32 @@ a {
 }
 
 .btn {
-  padding: 16px 24px;
-  background-color: #EEEEEE;
-  border-radius: 20px;
-  font-size: 20px;
-  font-weight: 600;
+  padding: 18px 32px;
+  border-radius: 24px;
+  font-size: 16px;
+  color: var(--main-white-color);
+}
+
+.btn-dflt {
+  background-color: var(--main-dark-gray-color);
+  
+  &:hover {
+    background-color: var(--main-dark-gray-color);
+    color: var(--main-white-color);
+
+    transition-duration: 500ms;
+    box-shadow: 0px 0px 10px rgb(117, 117, 117);
+  }
+}
+
+.btn-cta {
+  background-color: var(--main-blue-color);
 
   &:hover {
-    background-color: #EEEEEE;
+    background-color: var(--main-blue-color);
+    color: var(--main-white-color);
+
     transition-duration: 500ms;
-    box-shadow: 0px 0px 10px rgb(230, 230, 230);
+    box-shadow: 0px 0px 10px rgb(0, 91, 255);
   }
-
-  &.btn-cta {
-    background-color: #005BFF;
-    color: #FFFFFF;
-
-    &:hover {
-      transition-duration: 500ms;
-      box-shadow: 0px 0px 10px rgb(0, 91, 255);
-    }
-}
 }

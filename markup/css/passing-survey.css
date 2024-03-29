@@ -1,3 +1,12 @@
+:root {
+  --main-light-gray-color: #EEEEEE;
+  --main-dark-gray-color: #757575;
+  --main-blue-color: #005BFF;
+  --main-black-color: #000000;
+  --main-white-color: #FFFFFF;
+  --box-gray-shadow-color: rgba(0,0,0,0.05);
+}
+
 .main {
   .top{
     padding: 0px;
@@ -18,11 +27,11 @@
 }
 
 .time {
-  color: #005BFF;
+  color: var(--main-blue-color);
 }
 
 .question-block {
-  margin-top: 40px;
+  margin-top: 48px;
 
   .questions-list {
     max-width: 100%;
@@ -39,7 +48,7 @@
 }
 
 .question-item {
-  background-color: #EEEEEE;
+  background-color: var(--main-light-gray-color);
   border-radius: 5px;
   font-size: 24px;
 
@@ -47,14 +56,14 @@
   margin-right: 16px;
 
   &.active {
-    border: solid 2px #005BFF;
+    border: solid 2px var(--main-blue-color);
   }
   
   &.done {
-    background-color: #005BFF;
+    background-color: var(--main-blue-color);
     
     .question-link {
-      color: #FFFFFF;
+      color: var(--main-white-color);
     }
   }
 }
@@ -67,31 +76,34 @@
   margin-top: 4px;
 
   .form-check {
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 20px;
   }
 
   .form-select {
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 20px;
   }
 }
 
 .buttons {
-  margin-top: 40px;
+  margin-top: 48px;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 
+  /* Пока не утвердили
   .btn-return {
     margin-right: 40px;
-  }
+  }*/
 }
 
 .progress {
-  margin-top: 40px;
+  margin-top: 48px;
 }
 
 .instructions {
   font-size: 12px;
-  color: #757575;
+  color: var(--main-dark-gray-color);
 }
