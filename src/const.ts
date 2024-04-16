@@ -7,6 +7,8 @@ export enum AppRoute {
   MyList = 'my-list',
   Profile = 'profile',
   NotFound = '*',
+  СonstructorQuestions = 'survey-constructor-second-step',
+
 }
 
 // Статусы авторизации

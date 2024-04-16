@@ -6,6 +6,8 @@ import SurveyConstructorFirstStep from '../../pages/survey-constructor-first-ste
 import SurveyDescriptionPage from '../../pages/survey-description-page/survey-description-page';
 import PrivateRoute from '../private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
+import SurveyConstructorSecondStep from '../../pages/survey-constructor-second-step-page/survey-constructor-second-step-page';
+
 
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация
@@ -33,6 +35,10 @@ export default function App(): JSX.Element {
           <Route
             path={AppRoute.Сonstructor}
             element={<SurveyConstructorFirstStep/>}
+          />
+           <Route
+            path={AppRoute.СonstructorQuestions}
+            element={<SurveyConstructorSecondStep/>}
           />
         </Routes>
       </BrowserRouter>

@@ -32,7 +32,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
     console.log(`Вывести в популярное?: ${isPopular? 'Да': 'Нет'}`);
     // диспатч в хранилище
     // редирект на второй этап
-    return navigate(`/survey-constructor-second-step-page`);
+    return navigate(`/survey-constructor-second-step`);
   }
 
   return (
