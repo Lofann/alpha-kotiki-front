@@ -1,6 +1,7 @@
 import Header from "../../components/header/header"
 import { FormEvent, useRef, useState } from "react"
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom"
 
 //Компонент с созданием опроса(описание)
 export default function SurveyConstructorFirstStep(): JSX.Element {
@@ -14,6 +15,8 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
   const [audienceOfMen, setAudienceOfMen] = useState(false);
   const [audienceOfWomen, setAudienceOfWomen] = useState(false);
   const [isPopular, setIsPopular] = useState(false);
+
+  const navigate = useNavigate();
   
   //Отправка формы
   const handleNextButtonClick = (evt: FormEvent<HTMLButtonElement>) => {
@@ -29,6 +32,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
     console.log(`Вывести в популярное?: ${isPopular? 'Да': 'Нет'}`);
     // диспатч в хранилище
     // редирект на второй этап
+    return navigate(`/survey-constructor-second-step-page`);
   }
 
   return (

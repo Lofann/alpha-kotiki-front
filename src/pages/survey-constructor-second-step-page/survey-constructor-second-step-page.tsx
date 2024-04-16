@@ -6,7 +6,7 @@ export default function MainPage(): JSX.Element {
   return (
     <>
       <Helmet>
-        <title>Главная страница</title>
+        <title>Второй этап</title>
       </Helmet>
       <Header/>
     </>
