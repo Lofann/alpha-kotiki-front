@@ -1,0 +1,15 @@
+.survey-description {
+  max-width: 820px;
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 40px;
+}
+
+.survey-details {
+  margin-bottom: 44px;
+}
+
+.details-item {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
