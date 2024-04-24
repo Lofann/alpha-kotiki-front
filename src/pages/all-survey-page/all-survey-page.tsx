@@ -50,36 +50,72 @@ export default function AllSurvey() :JSX.Element {
         <title>Доступные опросы</title>
       </Helmet>
       <Header/>
-      <div className="wrapper">
-        <section className="container">
-          <main>
-            <h1 className="page-title">Доступные опросы</h1>
-            <div>
-              <div className="search-params">
-                <div className="search">
-                  <input
-                    type="text"
-                    className="search-field"
-                    placeholder="Поиск по опросам"
-                    onChange={handleSearchChange}
-                  />
-                  <i
-                    className="icon-search search-icon"
-                    style={{ fontSize: 24, color: "#757575" }}
-                  />
-                </div>
-                <div className="category">
-                  <select className="category-selector">
-                    <option>Категория</option>
-                    <option>Пункт 2</option>
-                    <option>Пункт 2</option>
-                  </select>
-                </div>
-              </div>
+      <div className="contain-2">
+        <main className="main">
+          <div className="page-title-center">Доступные опросы</div>
+          <div className="search-params">
+            <div className="search">
+              <i className="icon-search" />
+              <input
+                type="text"
+                className=" search-field"
+                placeholder="Поиск по опросам"
+                onChange={handleSearchChange}
+              />
             </div>
-            <SurveyCardsList surveys={relevantSurveys}/>
-          </main>
-        </section>
+            <div className="category">
+              <select
+                className="form-select category-selector"
+                aria-label="Пример выбора по умолчанию"
+              >
+                <option selected={true}>Категория</option>
+                <option value={1}>Научные</option>
+                <option value={2}>Бытовые</option>
+              </select>
+            </div>
+          </div>
+          <SurveyCardsList surveys={relevantSurveys}/>
+          <div className="pagination-bar">
+            <nav>
+              <ul className="pagination">
+                <li className="page-item">
+                  <a className="page-link" href="#" aria-label="Предыдущая">
+                    <span aria-hidden="true">
+                      <i className="icon-arrows-left" />
+                    </span>
+                  </a>
+                </li>
+                <li className="page-item active">
+                  <a className="page-link" href="#">
+                    1
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    2
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    ...
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#">
+                    6
+                  </a>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" href="#" aria-label="Следующая">
+                    <span aria-hidden="true">
+                      <i className="icon-arrows-right" />
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </main>
       </div>
     </>
   );

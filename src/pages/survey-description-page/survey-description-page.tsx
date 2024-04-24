@@ -1,7 +1,8 @@
 import Header from "../../components/header/header"
 import { Helmet } from "react-helmet-async"
-import { useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import { useAppSelector } from "../../hooks/store";
+import { AppRoute } from "../../const";
 
 export default function SurveyDescriptionPage() {
   const id = useParams().id;
@@ -13,37 +14,48 @@ export default function SurveyDescriptionPage() {
         <title>{`Опрос "${survey?.name}"`}</title>
       </Helmet>
       <Header/>
-      <div className="wrapper">
-        <section className="container">
-          <main>
-            <div className="flexbox">
-              <ul className="breadcrumbs">
-                <li className="breadcrumbs-item">Опросы</li>
-                <li className="breadcrumbs-item">/</li>
-                <li className="breadcrumbs-item">{`Опрос "${survey?.name}"`}</li>
-              </ul>
-              <i className="icon-arrows-left" />
-              <div className="subflexbox">
-                <h1 className="survey-section">{survey?.name}</h1>
-                <p className="survey-section survey-description">{survey?.description}</p>
-              </div>
-              <div className="subflexbox">
-                <p className="survey-section survey-details">
-                  <b>Время: </b>{survey?.time}
-                </p>
-                <p className="survey-section survey-details">
-                  <b>Стоимость: </b>{survey?.price}₽
-                </p>
-                <p className="survey-section survey-details">
-                  <b>Количество вопросов: </b>3
-                </p>
-              </div>
-              <div className="align-right">
-                <button className="button-next">Начать опрос</button>
-              </div>
-            </div>
-          </main>
-        </section>
+      <div className="contain-2">
+        <main className="main">
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
+                <NavLink to={`/${AppRoute.Surveys}`}>Опросы</NavLink>
+              </li>
+              <li className="breadcrumb-item active" aria-current="page">
+                Опрос "Молоко"
+              </li>
+            </ol>
+          </nav>
+          <h1 className="page-title-left indentation-page-title">Молоко</h1>
+          <p className="survey-description">
+            Добро пожаловать! Этот опрос призван изучить предпочтения и привычки
+            потребления молока среди населения. Молоко является важным источником
+            питательных веществ, таких как кальций и белок, и широко используется в
+            множестве блюд и напитков. Мы заинтересованы в том, как часто вы
+            употребляете молоко, какой вид молока предпочитаете (обычное,
+            обезжиренное, соевое и т. д.), а также в ваших привычках по употреблению
+            молочной продукции в целом. Нам важно понять, какие факторы влияют на ваши
+            предпочтения и восприятие молока. Пожалуйста, уделите несколько минут,
+            чтобы ответить на вопросы этого опроса и помочь нам получить ценную
+            информацию. Ваши ответы помогут нам лучше понять предпочтения и
+            потребности наших потребителей и развивать более релевантные продукты и
+            услуги. Спасибо за участие!
+          </p>
+          <div className="survey-details">
+            <p className="details-item">
+              <strong>Время: </strong>19 минут
+            </p>
+            <p className="details-item">
+              <strong>Стоимость: </strong>100₽
+            </p>
+            <p className="details-item">
+              <strong>Количество вопросов: </strong>3
+            </p>
+          </div>
+          <div className="align-right">
+            <button className="btn btn-cta">Начать опрос</button>
+          </div>
+        </main>
       </div>
     </>
   )
