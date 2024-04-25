@@ -4,6 +4,7 @@ export enum AppRoute {
   Login = 'login',
   Сonstructor = 'survey-constructor',
   Surveys = 'surveys',
+  SurveyPassing = 'passing',
   MyList = 'my-list',
   Profile = 'profile',
   NotFound = '*',

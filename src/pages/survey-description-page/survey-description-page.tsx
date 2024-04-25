@@ -1,12 +1,13 @@
 import Header from "../../components/header/header"
 import { Helmet } from "react-helmet-async"
-import { NavLink, useParams } from "react-router-dom"
+import { NavLink, useParams, useNavigate } from "react-router-dom"
 import { useAppSelector } from "../../hooks/store";
 import { AppRoute } from "../../const";
 
 export default function SurveyDescriptionPage() {
   const id = useParams().id;
   const survey = useAppSelector((state) => state.surveys.find((survey) => survey.id === id));
+  const navigate = useNavigate();
 
   return(
     <>
@@ -53,7 +54,12 @@ export default function SurveyDescriptionPage() {
             </p>
           </div>
           <div className="align-right">
-            <button className="btn btn-cta">Начать опрос</button>
+            <button 
+              className="btn btn-cta"
+              onClick={() => navigate(AppRoute.SurveyPassing)}
+              >
+              Начать опрос
+            </button>
           </div>
         </main>
       </div>
