@@ -24,7 +24,7 @@ export default function PassingSurveyPage() {
                   <NavLink to={`/${AppRoute.Surveys}/${id}`}>Опросы</NavLink>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
-                  Опрос "Молоко"
+                  Опрос "{`${survey?.name}`}"
                 </li>
               </ol>
             </nav>

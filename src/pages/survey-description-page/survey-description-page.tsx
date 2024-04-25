@@ -23,31 +23,20 @@ export default function SurveyDescriptionPage() {
                 <NavLink to={`/${AppRoute.Surveys}`}>Опросы</NavLink>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
-                Опрос "Молоко"
+                Опрос "{`${survey?.name}`}"
               </li>
             </ol>
           </nav>
-          <h1 className="page-title-left indentation-page-title">Молоко</h1>
+          <h1 className="page-title-left indentation-page-title">{`${survey?.name}`}</h1>
           <p className="survey-description">
-            Добро пожаловать! Этот опрос призван изучить предпочтения и привычки
-            потребления молока среди населения. Молоко является важным источником
-            питательных веществ, таких как кальций и белок, и широко используется в
-            множестве блюд и напитков. Мы заинтересованы в том, как часто вы
-            употребляете молоко, какой вид молока предпочитаете (обычное,
-            обезжиренное, соевое и т. д.), а также в ваших привычках по употреблению
-            молочной продукции в целом. Нам важно понять, какие факторы влияют на ваши
-            предпочтения и восприятие молока. Пожалуйста, уделите несколько минут,
-            чтобы ответить на вопросы этого опроса и помочь нам получить ценную
-            информацию. Ваши ответы помогут нам лучше понять предпочтения и
-            потребности наших потребителей и развивать более релевантные продукты и
-            услуги. Спасибо за участие!
+            {`${survey?.description}`}
           </p>
           <div className="survey-details">
             <p className="details-item">
-              <strong>Время: </strong>19 минут
+              <strong>Время: </strong>{`${survey?.time}`} минут
             </p>
             <p className="details-item">
-              <strong>Стоимость: </strong>100₽
+              <strong>Стоимость: </strong>{`${survey?.price}`}₽
             </p>
             <p className="details-item">
               <strong>Количество вопросов: </strong>3
