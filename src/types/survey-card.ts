@@ -1,3 +1,5 @@
+import { Question } from "./question"
+
 // Тип для превью-карточки опроса
 export type SurveyCard = {
   id: string,
@@ -5,4 +7,5 @@ export type SurveyCard = {
   description: string,
   time: string,
   price: number,
+  questions?: Question[], 
 }
