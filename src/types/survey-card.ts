@@ -7,5 +7,5 @@ export type SurveyCard = {
   description: string,
   time: string,
   price: number,
-  questions?: Question[], 
+  questions: Question[], 
 }

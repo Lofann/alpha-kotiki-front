@@ -52,8 +52,8 @@ export default function PassingSurveyPage() {
               </li>
             </ul>
             <div className="q-and-a">
-              <div className="question">Какое молоко вы чаще всего покупаете?</div>
-              <div className="instructions">*Выберите один или несколько ответов</div>
+          <div className="question">{survey?.questions[0].name}</div>
+              <div className="instructions">{survey?.questions[0].tooltip}</div>
               <div className="answers">
                 <div className="form-check">
                   <input
@@ -63,7 +63,7 @@ export default function PassingSurveyPage() {
                     id="flexCheck-1"
                   />
                   <label className="form-check-label" htmlFor="flexCheck-1">
-                    Простоквашино
+                    {survey?.questions[0].variables[0]}
                   </label>
                 </div>
                 <div className="form-check">
@@ -74,7 +74,7 @@ export default function PassingSurveyPage() {
                     id="flexCheck-2"
                   />
                   <label className="form-check-label" htmlFor="flexCheck-2">
-                    Домик в деревне
+                    {survey?.questions[0].variables[1]}
                   </label>
                 </div>
                 <div className="form-check">
@@ -85,7 +85,7 @@ export default function PassingSurveyPage() {
                     id="flexCheck-3"
                   />
                   <label className="form-check-label" htmlFor="flexCheck-3">
-                    Кунгурское
+                    {survey?.questions[0].variables[2]}
                   </label>
                 </div>
               </div>
