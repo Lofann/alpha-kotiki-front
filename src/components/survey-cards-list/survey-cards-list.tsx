@@ -1,5 +1,5 @@
 import SurveyCardsListProps from "./survey-cards-list.props"
-import SurveyCard from "../survey-card-new/survey-card"
+import SurveyCard from "../survey-card/survey-card"
 
 // Компонент, содержащий маленькие карточки с опросами
 // На вход получает массив с опросами
