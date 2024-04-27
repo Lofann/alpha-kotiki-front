@@ -1,0 +1,158 @@
+.search-params {
+    margin-bottom: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search {
+    width: 100%;
+    max-width: 660px;
+    height: 40px;
+    padding: 8px 16px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: left;
+    align-items: center;
+
+    border-radius: 50px;
+    border: 1px solid #000000;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.icon-search, .icon-arrows-right {
+    color: #000000;
+    font-size: 24px;
+}
+
+.search-field {
+    width: 100%;
+    border: 0;
+    margin-left: 24px;
+
+    &::placeholder {
+        color: #000000;
+    }
+
+    &:focus  {
+        &::placeholder {
+            transition-duration: 300ms;
+            opacity: 0;
+        }
+    }
+}
+
+.category {
+    max-width: 360px;
+    width: 100%;
+    height: 40px;
+}
+
+.category-selector {
+    display: flex;
+    text-align: start;
+    
+    width: 100%;
+    height: 40px;
+    padding: 8px 40px;
+    border-radius: 50px;
+    border: 1px solid #000000;
+
+    cursor: pointer;
+    font-size: 16px;
+
+    &:focus {
+        box-shadow: 0px 0px 0px rgb(0, 0, 0);
+        border: 1px solid #000000;
+    }
+}
+
+
+.search-field:active,:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.survey-cards {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 40px
+}
+
+.card {
+    width: 260px;
+    height: 374px;
+    border-radius: 28px;
+    border: 0px;
+    background: #EEE;
+    padding: 30px 28px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.19);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+}
+
+.card-info {
+    width: 204px;
+    height: 243px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-discripton {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: -4.6%;
+
+    height: 144px;
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.time-and-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+    div {
+      font-size: 16px;
+    }
+}
+
+.card-btn {
+    align-self: center;
+}
+
+.pagination-bar {
+    margin-top: 114px;
+    display: flex;
+    justify-content: space-around;
+
+    .page-item{
+        margin-right: 12px;
+        margin-left: 12px;
+        .page-link {
+            font-size: 24px;
+            color: #000000;
+            border: 0;
+            border-radius: 8px;
+        }
+    
+        &.active {
+            .page-link {
+                color: #ffffff;
+            }
+        }
+    }
+}
