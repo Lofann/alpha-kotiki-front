@@ -6,7 +6,7 @@ import SurveyConstructorFirstStep from '../../pages/survey-constructor-first-ste
 import SurveyDescriptionPage from '../../pages/survey-description-page/survey-description-page';
 import PrivateRoute from '../private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
-import PassingSurveyPage from '../../pages/passing-survey-page copy/passing-survey-page';
+import PassingSurveyPage from '../../pages/passing-survey-page/passing-survey-page';
 
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация

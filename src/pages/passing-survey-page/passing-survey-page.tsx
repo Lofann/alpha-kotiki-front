@@ -38,7 +38,7 @@ export default function PassingSurveyPage(): JSX.Element {
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <NavLink to={`/${AppRoute.Surveys}/${id}`}>Опросы</NavLink>
+                  <NavLink to={`/${AppRoute.Surveys}`}>Опросы</NavLink>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   Опрос "{`${survey?.name}`}"
@@ -52,17 +52,23 @@ export default function PassingSurveyPage(): JSX.Element {
           </div>
           <div className="question-block">
             <ul className="questions-list">
-              <li className="question-item active">
+              <li className={cn("question-item", {
+                'active': questionNumber === 0
+              })}>
                 <Link className="question-link" to="#">
                   1
                 </Link>
               </li>
-              <li className="question-item">
+              <li className={cn("question-item", {
+                'active': questionNumber === 1
+              })}>
                 <Link className="question-link" to="#">
                   2
                 </Link>
               </li>
-              <li className="question-item">
+              <li className={cn("question-item", {
+                'active': questionNumber === 2
+              })}>
                 <Link className="question-link" to="#">
                   3
                 </Link>
