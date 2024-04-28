@@ -1,13 +1,30 @@
 import Header from "../../components/header/header"
 import { Helmet } from "react-helmet-async"
-import { NavLink, useParams } from "react-router-dom"
+import { NavLink, useParams, Link } from "react-router-dom"
 import { useAppSelector } from "../../hooks/store";
 import { AppRoute } from "../../const";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import cn from "classnames";
+import CheckBoxQuestion from "../../components/questions/check-box";
+import RadioButtonQuestion from "../../components/questions/radio-button";
+import DropDownListQuestion from "../../components/questions/drop-down-list";
+import Timer from "../../components/timer/timer";
 
-export default function PassingSurveyPage() {
+export default function PassingSurveyPage(): JSX.Element {
   const id = useParams().id
   const survey = useAppSelector((state) => state.surveys.find((survey) => survey.id === id));
+  const [questionNumber, setQuestionNumber] = useState(0)
+
+  const getQuestion = () => {
+    switch (survey?.questions[questionNumber].type) {
+      case 'RadioButton':
+        return <RadioButtonQuestion answers={survey?.questions[questionNumber].variables}/>
+      case 'Checkbox':
+        return <CheckBoxQuestion answers={survey?.questions[questionNumber].variables}/>
+      case 'DropDownList':
+        return <DropDownListQuestion answers={survey?.questions[questionNumber].variables}/>
+    }
+  }
 
   return(
     <>
@@ -30,7 +47,7 @@ export default function PassingSurveyPage() {
             </nav>
             <div className="timer">
               <div>Оставшееся время:</div>
-              <div className="time">00:18:59</div>
+              <div className="time"><Timer minutes={survey?.time as number}></Timer></div>
             </div>
           </div>
           <div className="question-block">
@@ -52,48 +69,24 @@ export default function PassingSurveyPage() {
               </li>
             </ul>
             <div className="q-and-a">
-          <div className="question">{survey?.questions[0].name}</div>
-              <div className="instructions">{survey?.questions[0].tooltip}</div>
+          <div className="question">{survey?.questions[questionNumber].name}</div>
+              <div className="instructions">{survey?.questions[questionNumber].tooltip}</div>
               <div className="answers">
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    defaultValue=""
-                    id="flexCheck-1"
-                  />
-                  <label className="form-check-label" htmlFor="flexCheck-1">
-                    {survey?.questions[0].variables[0]}
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    defaultValue=""
-                    id="flexCheck-2"
-                  />
-                  <label className="form-check-label" htmlFor="flexCheck-2">
-                    {survey?.questions[0].variables[1]}
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    defaultValue=""
-                    id="flexCheck-3"
-                  />
-                  <label className="form-check-label" htmlFor="flexCheck-3">
-                    {survey?.questions[0].variables[2]}
-                  </label>
-                </div>
+                {getQuestion()}
               </div>
             </div>
           </div>
           <div className="buttons">
-            <button className=" btn btn-dflt btn-return">Назад</button>
-            <button className="btn btn-cta">Вперед</button>
+            <button
+              className={cn("btn btn-dflt", {
+                'hidden': questionNumber === 0
+              })}
+             onClick={() => setQuestionNumber(questionNumber - 1)}>Назад</button>
+            <button
+              className={cn("btn btn-cta", {
+                'hidden': survey && questionNumber === survey?.questions.length - 1
+              })}
+              onClick={() => setQuestionNumber(questionNumber + 1)}>Вперед</button>
           </div>
           <div
             className="progress"
