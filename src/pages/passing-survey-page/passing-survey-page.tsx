@@ -52,23 +52,29 @@ export default function PassingSurveyPage(): JSX.Element {
           </div>
           <div className="question-block">
             <ul className="questions-list">
-              <li className={cn("question-item", {
-                'active': questionNumber === 0
-              })}>
+              <li 
+                className={cn("question-item", {
+                  'active': questionNumber === 0
+                })}
+                onClick={() => setQuestionNumber(0)}>
                 <Link className="question-link" to="#">
                   1
                 </Link>
               </li>
-              <li className={cn("question-item", {
-                'active': questionNumber === 1
-              })}>
+              <li 
+                className={cn("question-item", {
+                  'active': questionNumber === 1
+                })}
+                onClick={() => setQuestionNumber(1)}>
                 <Link className="question-link" to="#">
                   2
                 </Link>
               </li>
-              <li className={cn("question-item", {
-                'active': questionNumber === 2
-              })}>
+              <li  
+                className={cn("question-item", {
+                  'active': questionNumber === 2
+                })}
+                onClick={() => setQuestionNumber(2)}>
                 <Link className="question-link" to="#">
                   3
                 </Link>
