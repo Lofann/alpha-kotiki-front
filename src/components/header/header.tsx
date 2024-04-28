@@ -19,7 +19,7 @@ export default function Header(): JSX.Element {
                 Главная страница
               </NavLink>
               <NavLink 
-                  to={AppRoute.NotFound} 
+                  to={`/${AppRoute.NotFound}`} 
                   className={({isActive}) => isActive? "top-item active" : "top-item"}>
                 Интервью
               </NavLink>
