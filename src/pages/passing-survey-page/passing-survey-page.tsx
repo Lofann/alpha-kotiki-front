@@ -1,19 +1,23 @@
 import Header from "../../components/header/header"
 import { Helmet } from "react-helmet-async"
-import { NavLink, useParams, Link } from "react-router-dom"
-import { useAppSelector } from "../../hooks/store";
+import { NavLink, useParams} from "react-router-dom"
 import { AppRoute } from "../../const";
-import { useState } from "react";
+import { useEffect } from "react";
 import cn from "classnames";
 import CheckBoxQuestion from "../../components/questions/check-box";
 import RadioButtonQuestion from "../../components/questions/radio-button";
 import DropDownListQuestion from "../../components/questions/drop-down-list";
 import Timer from "../../components/timer/timer";
+import NavBarQuestions from "../../components/questions-navbar/navbar";
+import { SurveyCard } from "../../types/survey-card";
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
+import { changeQuestionNumber, resetQuestionNumber } from "../../store/action";
 
 export default function PassingSurveyPage(): JSX.Element {
+  const dispatch = useAppDispatch()
+  const questionNumber = useAppSelector((store) => store.question)
   const id = useParams().id
   const survey = useAppSelector((state) => state.surveys.find((survey) => survey.id === id));
-  const [questionNumber, setQuestionNumber] = useState(0)
 
   const getQuestion = () => {
     switch (survey?.questions[questionNumber].type) {
@@ -25,6 +29,10 @@ export default function PassingSurveyPage(): JSX.Element {
         return <DropDownListQuestion answers={survey?.questions[questionNumber].variables}/>
     }
   }
+
+  useEffect(() => {
+    dispatch(resetQuestionNumber())
+  },[])
 
   return(
     <>
@@ -51,41 +59,11 @@ export default function PassingSurveyPage(): JSX.Element {
             </div>
           </div>
           <div className="question-block">
-            <ul className="questions-list">
-              <li 
-                className={cn("question-item", {
-                  'active': questionNumber === 0
-                })}
-                onClick={() => setQuestionNumber(0)}>
-                <Link className="question-link" to="#">
-                  1
-                </Link>
-              </li>
-              <li 
-                className={cn("question-item", {
-                  'active': questionNumber === 1
-                })}
-                onClick={() => setQuestionNumber(1)}>
-                <Link className="question-link" to="#">
-                  2
-                </Link>
-              </li>
-              <li  
-                className={cn("question-item", {
-                  'active': questionNumber === 2
-                })}
-                onClick={() => setQuestionNumber(2)}>
-                <Link className="question-link" to="#">
-                  3
-                </Link>
-              </li>
-            </ul>
+            <NavBarQuestions survey={survey as SurveyCard}/>
             <div className="q-and-a">
-          <div className="question">{survey?.questions[questionNumber].name}</div>
+              <div className="question">{survey?.questions[questionNumber].name}</div>
               <div className="instructions">{survey?.questions[questionNumber].tooltip}</div>
-              <div className="answers">
-                {getQuestion()}
-              </div>
+              <div className="answers">{getQuestion()}</div>
             </div>
           </div>
           <div className="buttons">
@@ -93,12 +71,12 @@ export default function PassingSurveyPage(): JSX.Element {
               className={cn("btn btn-dflt", {
                 'hidden': questionNumber === 0
               })}
-             onClick={() => setQuestionNumber(questionNumber - 1)}>Назад</button>
+             onClick={() => dispatch(changeQuestionNumber(questionNumber - 1))}>Назад</button>
             <button
               className={cn("btn btn-cta", {
                 'hidden': survey && questionNumber === survey?.questions.length - 1
               })}
-              onClick={() => setQuestionNumber(questionNumber + 1)}>Вперед</button>
+              onClick={() => dispatch(changeQuestionNumber(questionNumber + 1))}>Вперед</button>
           </div>
           <div
             className="progress"

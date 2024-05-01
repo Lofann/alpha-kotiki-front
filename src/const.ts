@@ -16,3 +16,9 @@ export enum AuthorizationStatus {
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
+
+export enum NameSpace {
+  User = 'USER',
+  Data = 'DATA',
+  Passing = 'PASSING-SURVEY'
+}
