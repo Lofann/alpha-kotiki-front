@@ -9,7 +9,6 @@ import RadioButtonQuestion from "../../components/questions/radio-button";
 import DropDownListQuestion from "../../components/questions/drop-down-list";
 import Timer from "../../components/timer/timer";
 import NavBarQuestions from "../../components/questions-navbar/navbar";
-import { SurveyCard } from "../../types/survey-card";
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { changeQuestionNumber, resetQuestionNumber } from "../../store/action";
 
@@ -34,65 +33,69 @@ export default function PassingSurveyPage(): JSX.Element {
     dispatch(resetQuestionNumber())
   },[])
 
-  return(
-    <>
-      <Helmet>
-        <title>{`Опрос "${survey?.name}"`}</title>
-      </Helmet>
-      <Header/>
-      <div className="contain-2">
-        <main className="main">
-          <div className="top">
-            <nav aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <NavLink to={`/${AppRoute.Surveys}`}>Опросы</NavLink>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  Опрос "{`${survey?.name}`}"
-                </li>
-              </ol>
-            </nav>
-            <div className="timer">
-              <div>Оставшееся время:</div>
-              <div className="time"><Timer minutes={survey?.time as number}></Timer></div>
+  if (survey) {
+    return(
+      <>
+        <Helmet>
+          <title>{`Опрос "${survey.name}"`}</title>
+        </Helmet>
+        <Header/>
+        <div className="contain-2">
+          <main className="main">
+            <div className="top">
+              <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item">
+                    <NavLink to={`/${AppRoute.Surveys}`}>Опросы</NavLink>
+                  </li>
+                  <li className="breadcrumb-item active" aria-current="page">
+                    Опрос "{`${survey.name}`}"
+                  </li>
+                </ol>
+              </nav>
+              <div className="timer">
+                <div>Оставшееся время:</div>
+                <div className="time"><Timer minutes={survey.time}></Timer></div>
+              </div>
             </div>
-          </div>
-          <div className="question-block">
-            <NavBarQuestions survey={survey as SurveyCard}/>
-            <div className="q-and-a">
-              <div className="question">{survey?.questions[questionNumber].name}</div>
-              <div className="instructions">{survey?.questions[questionNumber].tooltip}</div>
-              <div className="answers">{getQuestion()}</div>
+            <div className="question-block">
+              <NavBarQuestions survey={survey}/>
+              <div className="q-and-a">
+                <div className="question">{survey.questions[questionNumber].name}</div>
+                <div className="instructions">{survey.questions[questionNumber].tooltip}</div>
+                <div className="answers">{getQuestion()}</div>
+              </div>
             </div>
-          </div>
-          <div className="buttons">
-            <button
-              className={cn("btn btn-dflt", {
-                'hidden': questionNumber === 0
-              })}
-             onClick={() => dispatch(changeQuestionNumber(questionNumber - 1))}>Назад</button>
-            <button
-              className={cn("btn btn-cta", {
-                'hidden': survey && questionNumber === survey?.questions.length - 1
-              })}
-              onClick={() => dispatch(changeQuestionNumber(questionNumber + 1))}>Вперед</button>
-          </div>
-          <div
-            className="progress"
-            role="progressbar"
-            aria-label="Animated striped example"
-            aria-valuenow={0}
-            aria-valuemin={0}
-            aria-valuemax={100}
-          >
+            <div className="buttons">
+              <button
+                className={cn("btn btn-dflt", {
+                  'hidden': questionNumber === 0
+                })}
+               onClick={() => dispatch(changeQuestionNumber(questionNumber - 1))}>Назад</button>
+              <button
+                className={cn("btn btn-cta", {
+                  'hidden': survey && questionNumber === survey.questions.length - 1
+                })}
+                onClick={() => dispatch(changeQuestionNumber(questionNumber + 1))}>Вперед</button>
+            </div>
             <div
-              className="progress-bar progress-bar-striped progress-bar-animated"
-              style={{ width: "0%" }}
-            />
-          </div>
-        </main>
-      </div>
-    </>
-  )
+              className="progress"
+              role="progressbar"
+              aria-label="Animated striped example"
+              aria-valuenow={0}
+              aria-valuemin={0}
+              aria-valuemax={100}
+            >
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                style={{ width: "0%" }}
+              />
+            </div>
+          </main>
+        </div>
+      </>
+    )
+  }
+  
+  return <></>
 }
