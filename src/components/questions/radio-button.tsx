@@ -3,8 +3,8 @@ import { QuestionProps } from "./question-props";
 export default function RadioButtonQuestion({answers}: QuestionProps): JSX.Element {
   return (
     <>
-      {answers.map((answer) =>
-        <div className="form-check">
+      {answers.map((answer, index) =>
+        <div key={index} className="form-check">
           <input
             className="form-check-input"
             type="radio"
