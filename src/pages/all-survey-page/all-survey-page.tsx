@@ -4,6 +4,7 @@ import { SurveyCard } from "../../types/survey-card";
 import { useAppSelector } from "../../hooks/store";
 import { ChangeEvent, useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import PagginationBar from "../../components/pagination-bar/pagination-bar";
 
 // Фильтрация по поиску
 const filterBySearch = (searchValue: string, surveys: SurveyCard[]) => {
@@ -68,46 +69,7 @@ export default function AllSurvey() :JSX.Element {
               </div>
             </div>
             <SurveyCardsList surveys={relevantSurveys}/>
-            <div className="pagination-bar">
-              <nav>
-                <ul className="pagination">
-                  <li className="page-item">
-                    <a className="page-link" href="#" aria-label="Предыдущая">
-                      <span aria-hidden="true">
-                        <i className="icon-arrows-left" />
-                      </span>
-                    </a>
-                  </li>
-                  <li className="page-item active">
-                    <a className="page-link" href="#">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      2
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      ...
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      6
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#" aria-label="Следующая">
-                      <span aria-hidden="true">
-                        <i className="icon-arrows-right" />
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            <PagginationBar/>
           </main>
         </div>
       </>
