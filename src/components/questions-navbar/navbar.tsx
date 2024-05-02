@@ -8,7 +8,7 @@ type NavBarQuestionsProps = {
 export default function NavBarQuestions({survey}: NavBarQuestionsProps): JSX.Element {
   return (
     <ul className="questions-list">
-      {survey.questions.map((question,index) => <NavItem key={index} question={question} index={index}/>)}
+      {survey.questions.map((question,index) => <NavItem key={index} index={index}/>)}
   </ul>
   )
 }

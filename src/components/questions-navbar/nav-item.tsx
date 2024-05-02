@@ -1,15 +1,13 @@
 import cn from "classnames"
 import { Link } from "react-router-dom"
-import { Question } from "../../types/question"
 import { useAppSelector, useAppDispatch } from "../../hooks/store"
 import { changeQuestionNumber } from "../../store/action"
 
 type NavItemProps = {
-  question: Question,
   index: number
 }
 
-export default function NavItem({question, index}: NavItemProps): JSX.Element {
+export default function NavItem({index}: NavItemProps): JSX.Element {
   const dispatch = useAppDispatch()
   const questionNumber = useAppSelector((state) => state.question)
 
