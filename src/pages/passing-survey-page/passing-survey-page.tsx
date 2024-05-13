@@ -10,27 +10,31 @@ import DropDownListQuestion from "../../components/questions/drop-down-list";
 import Timer from "../../components/timer/timer";
 import NavBarQuestions from "../../components/questions-navbar/navbar";
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
-import { changeQuestionNumber, resetQuestionNumber } from "../../store/action";
+import { changeQuestionNumber, resetQuestionNumber, resetAnswers } from "../../store/action";
 
 export default function PassingSurveyPage(): JSX.Element {
   const dispatch = useAppDispatch()
-  const questionNumber = useAppSelector((store) => store.question)
   const id = useParams().id
+
+  const questionNumber = useAppSelector((store) => store.question)
   const survey = useAppSelector((state) => state.surveys.find((survey) => survey.id === id));
 
   const getQuestion = () => {
-    switch (survey?.questions[questionNumber].type) {
-      case 'RadioButton':
-        return <RadioButtonQuestion answers={survey?.questions[questionNumber].variables}/>
-      case 'Checkbox':
-        return <CheckBoxQuestion answers={survey?.questions[questionNumber].variables}/>
-      case 'DropDownList':
-        return <DropDownListQuestion answers={survey?.questions[questionNumber].variables}/>
+    if (survey) {
+      switch (survey.questions[questionNumber].type) {
+        case 'RadioButton':
+          return <RadioButtonQuestion currentAnswers={survey.questions[questionNumber].variables} currentQuestionId={survey.questions[questionNumber].id}/>
+        case 'Checkbox':
+          return <CheckBoxQuestion currentAnswers={survey.questions[questionNumber].variables} currentQuestionId={survey.questions[questionNumber].id}/>
+        case 'DropDownList':
+          return <DropDownListQuestion currentAnswers={survey.questions[questionNumber].variables} currentQuestionId={survey.questions[questionNumber].id}/>
+      }
     }
   }
 
   useEffect(() => {
     dispatch(resetQuestionNumber())
+    dispatch(resetAnswers())
   },[])
 
   if (survey) {

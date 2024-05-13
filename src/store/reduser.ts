@@ -1,15 +1,19 @@
 import { createReducer } from "@reduxjs/toolkit";
 import SurveyCards from "../types/survey-cards";
+import { Answers } from "../types/answers";
 import { surveys } from "../mocks/surveys";
 import { 
   getSurveys,
   resetQuestionNumber,
-  changeQuestionNumber
+  changeQuestionNumber,
+  updateAnswers,
+  resetAnswers
 } from "./action";
 
-const initialState: {surveys: SurveyCards, question: number} = {
+const initialState: {surveys: SurveyCards, question: number, answers: Answers} = {
   surveys: [],
-  question: 0
+  question: 0,
+  answers: []
 }
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -22,5 +26,11 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(changeQuestionNumber, (state, action) => {
       state.question = action.payload
+    })
+    .addCase(resetAnswers, (state) => {
+      state.answers = []
+    })
+    .addCase(updateAnswers, (state, action) => {
+      state.answers = action.payload
     })
 })

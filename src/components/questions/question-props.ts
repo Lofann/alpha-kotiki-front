@@ -1,3 +1,4 @@
 export type QuestionProps = {
-  answers: string[]
+  currentQuestionId: string,
+  currentAnswers: string[]
 }
