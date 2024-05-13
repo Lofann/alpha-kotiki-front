@@ -1,19 +1,34 @@
 import { QuestionProps } from "./question-props";
-import { useRef } from "react";
+import { useState, useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "../../hooks/store";
+import { updateAnswers } from "../../store/action";
 
-export default function RadioButtonQuestion({currentAnswers: answers}: QuestionProps): JSX.Element {
-  const answerRef = useRef<number>(-1)
+export default function RadioButtonQuestion({currentAnswers, currentQuestionId}: QuestionProps): JSX.Element {
+  const dispatch = useAppDispatch()
+  const [answer, setAnswer] = useState<string>()
+  const savedAnswers = useAppSelector((state) => state.answers)
 
-  const answerClickHandler = (index: number) => {
-    answerRef.current = index
+  useEffect(() => {
+    if (answer) {
+      dispatch(updateAnswers([...filterAnswers(), {questionId:currentQuestionId, answers: [answer]}]))
+    }
+  }, [answer])
+
+  const filterAnswers = () => {
+    return savedAnswers.filter((answer) => answer.questionId !== currentQuestionId)
+  }
+
+  const answerClickHandler = (answer: string) => {
+    setAnswer(answer)
   }
 
   return (
     <>
-      {answers.map((answer, index) =>
-        <div key={index} className="form-check" onChange={() => answerClickHandler(index)}>
+      {currentAnswers.map((answer, index) =>
+        <div key={index} className="form-check" onChange={() => answerClickHandler(answer)}>
           <input
             className="form-check-input"
+            checked={answer === savedAnswers.find((answer) => answer.questionId === currentQuestionId)?.answers[0]}
             type="radio"
             name="flexRadioDefault"
             id={`flexRadioDefault${answer}`}
