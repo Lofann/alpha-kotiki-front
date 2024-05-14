@@ -18,3 +18,10 @@ export enum AuthorizationStatus {
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
+
+export enum QuestionType{
+  Checkbox = 'Checkbox',
+  RadioButton = 'RadioButton',
+  DropDownList ='DropDownList',
+  Text ='Text',
+}
