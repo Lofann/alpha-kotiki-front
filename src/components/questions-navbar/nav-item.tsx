@@ -10,11 +10,13 @@ type NavItemProps = {
 export default function NavItem({index}: NavItemProps): JSX.Element {
   const dispatch = useAppDispatch()
   const questionNumber = useAppSelector((state) => state.question)
+  const savedAnswers = useAppSelector((state) => state.answers)
 
   return (
     <li 
       className={cn("question-item", {
-        'active': questionNumber === index
+        'active': questionNumber === index,
+        'done': savedAnswers.find((savedAnswer) => savedAnswer.questionId === String(index)) && questionNumber !== index
       })}
       onClick={() => dispatch(changeQuestionNumber(index))}>
       <Link className="question-link" to="#">
