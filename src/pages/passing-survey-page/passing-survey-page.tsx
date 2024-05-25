@@ -11,6 +11,7 @@ import Timer from "../../components/timer/timer";
 import NavBarQuestions from "../../components/questions-navbar/navbar";
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { changeQuestionNumber, resetQuestionNumber, resetAnswers } from "../../store/action";
+import ProgressBar from "../../components/progress-bar/progress-bar";
 
 export default function PassingSurveyPage(): JSX.Element {
   const dispatch = useAppDispatch()
@@ -82,19 +83,7 @@ export default function PassingSurveyPage(): JSX.Element {
                 })}
                 onClick={() => dispatch(changeQuestionNumber(questionNumber + 1))}>Вперед</button>
             </div>
-            <div
-              className="progress"
-              role="progressbar"
-              aria-label="Animated striped example"
-              aria-valuenow={0}
-              aria-valuemin={0}
-              aria-valuemax={100}
-            >
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                style={{ width: "0%" }}
-              />
-            </div>
+            <ProgressBar survey={survey}/>
           </main>
         </div>
       </>
