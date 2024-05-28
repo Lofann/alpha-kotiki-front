@@ -19,6 +19,6 @@ export enum AuthorizationStatus {
 
 export enum NameSpace {
   User = 'USER',
-  Data = 'DATA',
+  Creating = 'CREATING-SURVEY',
   Passing = 'PASSING-SURVEY'
 }
