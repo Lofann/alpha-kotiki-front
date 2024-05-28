@@ -13,7 +13,7 @@ export const surveys: SurveyCards = [
         id: '0',
         name: 'Какое молоко вы чаще всего покупаете?',
         tooltip: '*Выберите один или несколько ответов',
-        type: 'RadioButton',
+        type: 'DropDownList',
         isRequired: true,
         variables: ['Простоквашино', 'Домик в деревне', 'Кунгурское'],
       },
@@ -27,7 +27,7 @@ export const surveys: SurveyCards = [
       {
         id: '2',
         name: 'Как часто вы пьете молоко?',
-        type: 'RadioButton',
+        type: 'Checkbox',
         isRequired: true,
         variables: ['Один раз в день', 'Один раз в неделю', 'Не пью молоко в чистом виде'],
       }

@@ -1,25 +1,46 @@
 import { QuestionProps } from "./question-props";
-import { useRef } from "react";
+import { useState, useEffect} from "react";
+import { useAppSelector, useAppDispatch } from "../../hooks/store";
+import { updateAnswers } from "../../store/action";
+import { filterAnswers } from "../../utils";
 
-export default function CheckBoxQuestion({currentAnswers: answers}: QuestionProps): JSX.Element {
-  const answerRef = useRef<number[]>([])
+export default function CheckBoxQuestion({currentAnswers, currentQuestionId}: QuestionProps): JSX.Element {
+  const dispatch = useAppDispatch()
+  const savedAnswers = useAppSelector((state) => state.answers)
+  const [answers, setAnswers] = useState<string[] | undefined>(savedAnswers.find((answer) => answer.questionId === currentQuestionId)?.answers)
+  
+  useEffect(() => {
+    if (answers) {
+      dispatch(updateAnswers([...filterAnswers(savedAnswers, currentQuestionId), {questionId:currentQuestionId, answers: answers}]))
+    }
+  }, [answers])
 
-  const answerClickHandler = (index: number) => {
-    if (answerRef.current.includes(index)) {
-      const deleteIndex = answerRef.current.indexOf(index)
-      answerRef.current.splice(deleteIndex, 1)
-    } else answerRef.current.push(index)
+  const answerClickHandler = (answer: string) => {
+    if (answers) {
+      if (answers.filter((item) => item === answer).length !== 0) {
+        setAnswers([...answers.filter((item) => item !== answer)])
+      } else setAnswers([...answers, answer])
+    } else setAnswers([answer])
+  }
+
+  const getCheckboxStatus = (answer: string) => {
+    if (answers) {
+      return Boolean(answers.find((item) => item === answer))
+    }
+
+    return false
   }
 
   return (
     <>
-      {answers.map((answer,index) =>
-        <div key={index} className="form-check" onChange={() => answerClickHandler(index)}>
+      {currentAnswers.map((answer,index) =>
+        <div key={index} className="form-check" onChange={() => answerClickHandler(answer)}>
           <input
             className="form-check-input"
             type="checkbox"
             defaultValue=""
             id={`flexCheck${answer}`}
+            checked={getCheckboxStatus(answer)}
           />
           <label className="form-check-label" htmlFor={`flexCheck${answer}`}>
             {answer}
