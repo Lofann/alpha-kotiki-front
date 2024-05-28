@@ -1,6 +1,6 @@
 import Header from "../../components/header/header"
 import { Helmet } from "react-helmet-async"
-import { NavLink, useParams} from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import { AppRoute } from "../../const";
 import { useEffect } from "react";
 import CheckBoxQuestion from "../../components/questions/check-box";
@@ -12,13 +12,12 @@ import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { resetQuestionNumber, resetAnswers } from "../../store/action";
 import ProgressBar from "../../components/progress-bar/progress-bar";
 import PassingButtons from "../../components/buttons-group/passing-buttons";
+import { getSurvey, getQuestionNumber } from "../../store/passing-survey-data/passing-survey.selectors";
 
 export default function PassingSurveyPage(): JSX.Element {
   const dispatch = useAppDispatch()
-  const id = useParams().id
-
-  const questionNumber = useAppSelector((state) => state.question)
-  const survey = useAppSelector((state) => state.surveys.find((survey) => survey.id === id));
+  const questionNumber = useAppSelector(getQuestionNumber)
+  const survey = useAppSelector(getSurvey)
 
   const getQuestion = () => {
     if (survey) {

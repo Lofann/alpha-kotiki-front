@@ -1,13 +1,20 @@
 import Header from "../../components/header/header"
 import { Helmet } from "react-helmet-async"
 import { NavLink, useParams, useNavigate } from "react-router-dom"
-import { useAppSelector } from "../../hooks/store";
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { AppRoute } from "../../const";
+import { getSurveys } from "../../store/passing-survey-data/passing-survey.selectors";
+import { setSurvey } from "../../store/action";
 
 export default function SurveyDescriptionPage() {
   const id = useParams().id;
-  const survey = useAppSelector((state) => state.surveys.find((survey) => survey.id === id));
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const survey = useAppSelector(getSurveys).find((survey) => survey.id === id);
+  
+  if (survey) {
+    dispatch(setSurvey(survey))
+  }
 
   if (survey) {
     return(

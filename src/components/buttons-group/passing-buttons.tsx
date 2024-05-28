@@ -2,6 +2,7 @@ import cn from "classnames";
 import { useAppSelector, useAppDispatch } from "../../hooks/store";
 import { changeQuestionNumber } from "../../store/action";
 import { SurveyCard } from "../../types/survey-card";
+import { getQuestionNumber } from "../../store/passing-survey-data/passing-survey.selectors";
 
 type PassingButtonsProps = {
   survey: SurveyCard
@@ -9,7 +10,7 @@ type PassingButtonsProps = {
 
 export default function PassingButtons({survey}: PassingButtonsProps): JSX.Element {
   const dispatch = useAppDispatch()
-  const questionNumber = useAppSelector((state) => state.question)
+  const questionNumber = useAppSelector(getQuestionNumber)
   const lastQuestionNumber = survey.questions.length - 1
 
   const BackButtonClickHandler = () => {

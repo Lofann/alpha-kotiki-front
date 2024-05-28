@@ -1,12 +1,13 @@
 import { useAppSelector } from "../../hooks/store"
 import { SurveyCard } from "../../types/survey-card"
+import { getAnswers } from "../../store/passing-survey-data/passing-survey.selectors"
 
 type ProgressBarProps = {
   survey: SurveyCard
 }
 
 export default function ProgressBar({survey}: ProgressBarProps): JSX.Element {
-  const savedAnswers = useAppSelector((state) => state.answers).filter((answer) => answer.answers.length !== 0)
+  const savedAnswers = useAppSelector(getAnswers).filter((answer) => answer.answers.length !== 0)
   const getProgress = () => {
     let count = savedAnswers.length
     return count / survey.questions.length * 100

@@ -2,6 +2,7 @@ import cn from "classnames"
 import { Link } from "react-router-dom"
 import { useAppSelector, useAppDispatch } from "../../hooks/store"
 import { changeQuestionNumber } from "../../store/action"
+import { getQuestionNumber, getAnswers } from "../../store/passing-survey-data/passing-survey.selectors"
 
 type NavItemProps = {
   index: number
@@ -9,8 +10,8 @@ type NavItemProps = {
 
 export default function NavItem({index}: NavItemProps): JSX.Element {
   const dispatch = useAppDispatch()
-  const questionNumber = useAppSelector((state) => state.question)
-  const savedAnswers = useAppSelector((state) => state.answers)
+  const questionNumber = useAppSelector(getQuestionNumber)
+  const savedAnswers = useAppSelector(getAnswers)
 
   return (
     <li 

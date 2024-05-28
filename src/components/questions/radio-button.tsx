@@ -2,11 +2,12 @@ import { QuestionProps } from "./question-props";
 import { useState, useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../hooks/store";
 import { updateAnswers } from "../../store/action";
+import { getAnswers } from "../../store/passing-survey-data/passing-survey.selectors";
 
 export default function RadioButtonQuestion({currentAnswers, currentQuestionId}: QuestionProps): JSX.Element {
   const dispatch = useAppDispatch()
   const [answer, setAnswer] = useState<string>()
-  const savedAnswers = useAppSelector((state) => state.answers)
+  const savedAnswers = useAppSelector(getAnswers)
 
   useEffect(() => {
     if (answer) {

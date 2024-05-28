@@ -3,10 +3,11 @@ import { useState, useEffect} from "react";
 import { useAppSelector, useAppDispatch } from "../../hooks/store";
 import { updateAnswers } from "../../store/action";
 import { filterAnswers } from "../../utils";
+import { getAnswers } from "../../store/passing-survey-data/passing-survey.selectors";
 
 export default function CheckBoxQuestion({currentAnswers, currentQuestionId}: QuestionProps): JSX.Element {
   const dispatch = useAppDispatch()
-  const savedAnswers = useAppSelector((state) => state.answers)
+  const savedAnswers = useAppSelector(getAnswers)
   const [answers, setAnswers] = useState<string[] | undefined>(savedAnswers.find((answer) => answer.questionId === currentQuestionId)?.answers)
   
   useEffect(() => {
