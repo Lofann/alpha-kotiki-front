@@ -3,21 +3,21 @@ import { Helmet } from "react-helmet-async"
 import { NavLink, useParams} from "react-router-dom"
 import { AppRoute } from "../../const";
 import { useEffect } from "react";
-import cn from "classnames";
 import CheckBoxQuestion from "../../components/questions/check-box";
 import RadioButtonQuestion from "../../components/questions/radio-button";
 import DropDownListQuestion from "../../components/questions/drop-down-list";
 import Timer from "../../components/timer/timer";
 import NavBarQuestions from "../../components/questions-navbar/navbar";
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
-import { changeQuestionNumber, resetQuestionNumber, resetAnswers } from "../../store/action";
+import { resetQuestionNumber, resetAnswers } from "../../store/action";
 import ProgressBar from "../../components/progress-bar/progress-bar";
+import PassingButtons from "../../components/buttons-group/passing-buttons";
 
 export default function PassingSurveyPage(): JSX.Element {
   const dispatch = useAppDispatch()
   const id = useParams().id
 
-  const questionNumber = useAppSelector((store) => store.question)
+  const questionNumber = useAppSelector((state) => state.question)
   const survey = useAppSelector((state) => state.surveys.find((survey) => survey.id === id));
 
   const getQuestion = () => {
@@ -71,18 +71,7 @@ export default function PassingSurveyPage(): JSX.Element {
                 <div className="answers">{getQuestion()}</div>
               </div>
             </div>
-            <div className="buttons">
-              <button
-                className={cn("btn btn-dflt", {
-                  'hidden': questionNumber === 0
-                })}
-               onClick={() => dispatch(changeQuestionNumber(questionNumber - 1))}>Назад</button>
-              <button
-                className={cn("btn btn-cta", {
-                  'hidden': survey && questionNumber === survey.questions.length - 1
-                })}
-                onClick={() => dispatch(changeQuestionNumber(questionNumber + 1))}>Вперед</button>
-            </div>
+            <PassingButtons survey={survey}/>
             <ProgressBar survey={survey}/>
           </main>
         </div>
