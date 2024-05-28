@@ -9,6 +9,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import PassingSurveyPage from '../../pages/passing-survey-page/passing-survey-page';
 import { useAppDispatch } from '../../hooks/store';
 import { getSurveys } from '../../store/action';
+import CompletingSurveyPage from '../../pages/main-page/completing-survey-page/completing-survey-page';
 
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация
@@ -35,7 +36,8 @@ export default function App(): JSX.Element {
             />
             <Route path=':id'>
               <Route index element={<SurveyDescriptionPage/>}/>
-              <Route path='passing' element={<PassingSurveyPage/>}/>
+              <Route path={AppRoute.SurveyPassing} element={<PassingSurveyPage/>}/>
+              <Route path={AppRoute.SurveyCompleting} element={<CompletingSurveyPage/>}/>
             </Route>
           </Route>
           <Route

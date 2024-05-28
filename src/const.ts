@@ -4,10 +4,11 @@ export enum AppRoute {
   Login = 'login',
   Сonstructor = 'survey-constructor',
   Surveys = 'surveys',
-  SurveyPassing = 'passing',
+  SurveyPassing = 'survey-passing',
   MyList = 'my-list',
   Profile = 'profile',
   NotFound = '*',
+  SurveyCompleting = 'survey-completing'
 }
 
 // Статусы авторизации

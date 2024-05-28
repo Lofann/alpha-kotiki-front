@@ -1,8 +1,10 @@
 import cn from "classnames";
+import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../hooks/store";
 import { changeQuestionNumber } from "../../store/action";
 import { SurveyCard } from "../../types/survey-card";
 import { getAnswers, getQuestionNumber } from "../../store/passing-survey-data/passing-survey.selectors";
+import { AppRoute } from "../../const";
 
 type PassingButtonsProps = {
   survey: SurveyCard
@@ -10,6 +12,7 @@ type PassingButtonsProps = {
 
 export default function PassingButtons({survey}: PassingButtonsProps): JSX.Element {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const questionNumber = useAppSelector(getQuestionNumber)
   const savedAnswers = useAppSelector(getAnswers)
   const lastQuestionNumber = survey.questions.length - 1
@@ -21,6 +24,8 @@ export default function PassingButtons({survey}: PassingButtonsProps): JSX.Eleme
   const NextButtonClickHandler = () => {
     if (questionNumber !== lastQuestionNumber) {
       dispatch(changeQuestionNumber(questionNumber + 1))
+    } else {
+      navigate(`/surveys/${survey.id}/${AppRoute.SurveyCompleting}`)
     }
   }
 
