@@ -4,12 +4,11 @@ export enum AppRoute {
   Login = 'login',
   Сonstructor = 'survey-constructor',
   Surveys = 'surveys',
-  SurveyPassing = 'passing',
+  SurveyPassing = 'survey-passing',
   MyList = 'my-list',
   Profile = 'profile',
   NotFound = '*',
-  СonstructorQuestions = 'survey-constructor-second-step',
-
+  SurveyCompleting = 'survey-completing'
 }
 
 // Статусы авторизации
@@ -19,9 +18,8 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export enum QuestionType{
-  Checkbox = 'Checkbox',
-  RadioButton = 'RadioButton',
-  DropDownList ='DropDownList',
-  Text ='Text',
+export enum NameSpace {
+  User = 'USER',
+  Creating = 'CREATING-SURVEY',
+  Passing = 'PASSING-SURVEY'
 }

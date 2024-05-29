@@ -141,3 +141,7 @@ a {
 .align-center {
   text-align: center;
 }
+
+.blue {
+  color: var(--main-blue-color)
+}
