@@ -11,12 +11,9 @@ export default function SurveyDescriptionPage() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const survey = useAppSelector(getSurveys).find((survey) => survey.id === id);
-  
-  if (survey) {
-    dispatch(setSurvey(survey))
-  }
 
   if (survey) {
+    dispatch(setSurvey(survey))
     return(
       <>
         <Helmet>
