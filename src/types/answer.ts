@@ -5,3 +5,7 @@ export type Answer = {
     Type : QuestionType,
     Value: string
 }
+export type Answer = {
+  questionId: string,
+  answers: string[]
+}

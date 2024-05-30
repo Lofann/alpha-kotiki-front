@@ -1,0 +1,12 @@
+.completion-information {
+  margin-top: 48px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
