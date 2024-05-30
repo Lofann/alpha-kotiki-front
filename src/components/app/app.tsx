@@ -11,6 +11,9 @@ import { useAppDispatch } from '../../hooks/store';
 import { getSurveys } from '../../store/action';
 import CompletingSurveyPage from '../../pages/main-page/completing-survey-page/completing-survey-page';
 
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация
 export default function App(): JSX.Element {
@@ -43,6 +46,10 @@ export default function App(): JSX.Element {
           <Route
             path={AppRoute.Сonstructor}
             element={<SurveyConstructorFirstStep/>}
+          />
+           <Route
+            path={AppRoute.СonstructorQuestions}
+            element={<SurveyConstructorSecondStep/>}
           />
         </Routes>
       </BrowserRouter>
