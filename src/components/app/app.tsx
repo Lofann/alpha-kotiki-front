@@ -9,11 +9,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import PassingSurveyPage from '../../pages/passing-survey-page/passing-survey-page';
 import { useAppDispatch } from '../../hooks/store';
 import { getSurveys } from '../../store/action';
-import CompletingSurveyPage from '../../pages/main-page/completing-survey-page/completing-survey-page';
+import CompletingSurveyPage from '../../pages/completing-survey-page/completing-survey-page';
 import { surveys } from '../../mocks/surveys';
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+import SurveyConstructorSecondStep from '../../pages/survey-constructor-second-step-page/survey-constructor-second-step-page';
 
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация
