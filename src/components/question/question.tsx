@@ -4,7 +4,7 @@ import QuestionProps from "./question.props";
 
 import { QuestionType } from "../../const";
 import AnswerProps from "../answer/answer.props";
-import { Answer } from "../../types/answer";
+import {  PossibleAnswer } from "../../types/answer";
 
 
 
@@ -16,9 +16,9 @@ export default function Question({ }: QuestionProps) {
     //const answersRef = useRef<Array<HTMLInputElement>>(null);
     const [required, setRequired] = useState(false);
     const [questionType, setQuestionType] = useState(QuestionType.Text)
-    const [answers, setAnwsers] = useState(Array<Answer>);
+    const [answers, setAnwsers] = useState(Array<PossibleAnswer>);
     
-    const addNewAnswer = (answer: Answer) =>{
+    const addNewAnswer = (answer: PossibleAnswer) =>{
         let answersArray = Object.assign([], answers);
         answersArray.push(answer)
         setAnwsers(answersArray);
@@ -40,7 +40,7 @@ export default function Question({ }: QuestionProps) {
                                 <input value = {answer.Value}
                                        className="question-title"
                                        type ={ answer.Type}
-                                       onChange={}></input>)}
+                                      ></input>)}
 
 
                     <div className="answer adding">

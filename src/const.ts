@@ -8,6 +8,8 @@ export enum AppRoute {
   MyList = 'my-list',
   Profile = 'profile',
   NotFound = '*',
+  СonstructorQuestions = 'survey-constructor-second-step',
+
   SurveyCompleting = 'survey-completing'
 }
 
@@ -22,4 +24,10 @@ export enum NameSpace {
   User = 'USER',
   Creating = 'CREATING-SURVEY',
   Passing = 'PASSING-SURVEY'
+}
+export enum QuestionType{
+  Checkbox = 'Checkbox',
+  RadioButton = 'RadioButton',
+  DropDownList ='DropDownList',
+  Text ='Text',
 }

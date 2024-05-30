@@ -11,6 +11,7 @@ import PassingSurveyPage from '../../pages/passing-survey-page/passing-survey-pa
 import { useAppDispatch } from '../../hooks/store';
 import { getSurveys } from '../../store/action';
 import CompletingSurveyPage from '../../pages/main-page/completing-survey-page/completing-survey-page';
+import SurveyConstructorSecondStep from '../../pages/survey-constructor-second-step-page/survey-constructor-second-step-page';
 
 
 // Корневой компонент
@@ -41,6 +42,7 @@ export default function App(): JSX.Element {
               <Route path={AppRoute.SurveyPassing} element={<PassingSurveyPage/>}/>
               <Route path={AppRoute.SurveyCompleting} element={<CompletingSurveyPage/>}/>
             </Route>
+            <Route path=':id' element={<SurveyDescriptionPage/>}/>
           </Route>
           <Route
             path={AppRoute.Сonstructor}

@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import SurveyCards from "../types/survey-cards";
 import { surveys } from "../mocks/surveys";
-import { getSurveys } from "./action";
+import { createSurvey, getSurveys } from "./action";
 
 const initialState: {surveys: SurveyCards} = {
   surveys: [],
@@ -13,3 +13,4 @@ export const reducer = createReducer(initialState, (builder) => {
       state.surveys = surveys
     })
 })
+
