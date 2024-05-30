@@ -8,7 +8,8 @@ export enum AppRoute {
   MyList = 'my-list',
   Profile = 'profile',
   NotFound = '*',
-  SurveyCompleting = 'survey-completing'
+  SurveyCompleting = 'survey-completing',
+  СonstructorQuestions = 'survey-constructor-second-step',
 }
 
 // Статусы авторизации
