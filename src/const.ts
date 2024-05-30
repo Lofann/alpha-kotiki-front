@@ -23,3 +23,7 @@ export enum NameSpace {
   Creating = 'CREATING-SURVEY',
   Passing = 'PASSING-SURVEY'
 }
+
+export enum APIRoute {
+  Surveys = '/Surveys'
+}

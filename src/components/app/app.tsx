@@ -10,13 +10,14 @@ import PassingSurveyPage from '../../pages/passing-survey-page/passing-survey-pa
 import { useAppDispatch } from '../../hooks/store';
 import { getSurveys } from '../../store/action';
 import CompletingSurveyPage from '../../pages/main-page/completing-survey-page/completing-survey-page';
+import { surveys } from '../../mocks/surveys';
 
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация
 export default function App(): JSX.Element {
   const authorizationStatus = AuthorizationStatus.Auth;
   const dispatch = useAppDispatch()
-  dispatch(getSurveys())
+  dispatch(getSurveys(surveys))
 
   return (
     <HelmetProvider>

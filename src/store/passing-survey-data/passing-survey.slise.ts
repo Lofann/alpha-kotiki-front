@@ -9,7 +9,6 @@ import {
   resetAnswers,
   setSurvey
 } from '../action';
-import { surveys } from '../../mocks/surveys';
 
 const initialState: PassingSurveyData = {
   surveys: [],
@@ -24,8 +23,8 @@ export const passingSurveyData = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-    .addCase(getSurveys, (state) => {
-      state.surveys = surveys
+    .addCase(getSurveys, (state, action) => {
+      state.surveys = action.payload
     })
     .addCase(setSurvey, (state, action) => {
       state.survey = action.payload
