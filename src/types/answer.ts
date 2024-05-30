@@ -1,6 +1,6 @@
 import { QuestionType } from "../const"
 
-export type Answer = {
+export type PossibleAnswer = {
     id: number,
     Type : QuestionType,
     Value: string
