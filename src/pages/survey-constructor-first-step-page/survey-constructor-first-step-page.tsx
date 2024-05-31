@@ -203,7 +203,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                           ref={null}
                           className=""
                           type="checkbox"
-
+                          checked = {isLimitedCompletionTimeRef}
                           onClick={() => { setIsLimitedCompletionTimeRef(!isLimitedCompletionTimeRef) }} />
                       <div>
                         
