@@ -50,13 +50,13 @@ export const createSurveyData = createSlice({
                 state.survey.completionTimeLimit = action.payload.completionTimeLimit
                 state.survey.questions = action.payload.questions
             }).addCase(updateQuestions, (state, action) => {
-                state.question.id = action.payload.id
-                state.question.name = action.payload.name
-                state.question.tooltip = action.payload.tooltip
-                state.question.isRequired = action.payload.isRequired
-                state.question.variablesAnswer = action.payload.variablesAnswer
+                // state.question.id = action.payload.id
+                // state.question.name = action.payload.name
+                // state.question.tooltip = action.payload.tooltip
+                // state.question.isRequired = action.payload.isRequired
+                // state.question.variablesAnswer = action.payload.variablesAnswer
+                state.survey.questions = action.payload})
 
-        })
 
 
         // .addCase(setDescriptionSurvey, (state, action) =>{
@@ -80,5 +80,4 @@ export const createSurveyData = createSlice({
         // .addCase(setCompletionTimeLimitSurvey, (state, action) =>{
         //     state.completionTimeLimit = action.payload
         // })
-    }
-})
+        }})

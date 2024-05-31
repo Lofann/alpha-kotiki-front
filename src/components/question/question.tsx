@@ -12,7 +12,7 @@ import { useAppDispatch } from "../../hooks/store";
 
 
 
-export default function Question({ }: QuestionProps) {
+export default function Question(questionData: QuestionProps) {
 
     const dispatch = useAppDispatch()
     
@@ -36,7 +36,7 @@ export default function Question({ }: QuestionProps) {
     return (
         <>
             <div className="question">
-                <div className="question-number">Вопрос 1</div>
+                <div className="question-number">Вопрос {questionData.id} </div>
                 <input className="question-title" type="text" placeholder="Текст Вопроса" />
                 <div className="answers-list">
 
@@ -44,7 +44,7 @@ export default function Question({ }: QuestionProps) {
                     answers.map(answer =>
                                 <input value = {answer.Value}
                                        className="question-title"
-                                       type ={ answer.Type}
+                                       type ={ questionData.type}
                                       ></input>)}
 
 
@@ -64,7 +64,7 @@ export default function Question({ }: QuestionProps) {
                     <div className="right-settings">
                         <div className="switch-box">
                             <label className="switch">
-                                <input type="checkbox" />
+                                <input type="checkbox" checked={questionData.isRequired}/>
                                 <span className="slider round"></span>
                             </label>
                             <label>Обязательный</label>

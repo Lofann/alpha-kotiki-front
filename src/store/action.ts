@@ -36,6 +36,9 @@ export const updateAnswers = createAction<Answers>('data/passing-survey/update-a
 // export const setCompletionTimeLimitSurvey = createAction<number>('data/survey-constructor/CompletionTimeLimitTime')
 
 export const saveNewSurvey = createAction<Survey>('data/survey-constructor/create-survey')
-export const updateQuestions = createAction<Question>('data/survey-constructor/update-questions')
+
+export const updateQuestions = createAction<Array<Question>>('data/survey-constructor/update-questions')
+
+// export const getQuestions = createAction('data/survey-constructor/update-questions')
 
  
