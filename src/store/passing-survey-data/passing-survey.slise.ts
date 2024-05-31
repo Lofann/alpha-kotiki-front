@@ -9,6 +9,7 @@ import {
   resetAnswers,
   setSurvey
 } from '../action';
+import { fetchSurvey, fetchSurveysAction } from '../api-action';
 
 const initialState: PassingSurveyData = {
   surveys: [],
@@ -23,6 +24,12 @@ export const passingSurveyData = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
+    .addCase(fetchSurveysAction.fulfilled, (state, action) => {
+      state.surveys = action.payload.surveys
+    })
+    .addCase(fetchSurvey.fulfilled, (state, action) => {
+      state.survey = { ...action.payload.survey, questions: action.payload.questions}
+    })
     .addCase(getSurveys, (state, action) => {
       state.surveys = action.payload
     })
