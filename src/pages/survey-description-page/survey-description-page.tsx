@@ -3,14 +3,24 @@ import { Helmet } from "react-helmet-async"
 import { NavLink, useParams, useNavigate } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { AppRoute } from "../../const";
-import { getSurveys } from "../../store/passing-survey-data/passing-survey.selectors";
+import { getSurvey } from "../../store/passing-survey-data/passing-survey.selectors";
 import { setSurvey } from "../../store/action";
+import { fetchSurvey } from "../../store/api-action";
+import { useEffect } from "react";
 
 export default function SurveyDescriptionPage() {
   const id = useParams().id;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const survey = useAppSelector(getSurveys).find((survey) => survey.id === id);
+
+  useEffect(() => {
+    if (id) {
+      dispatch(fetchSurvey({id: id}))
+    }
+  },[id])
+  
+
+  const survey = useAppSelector(getSurvey)
 
   if (survey) {
     dispatch(setSurvey(survey))
@@ -38,7 +48,7 @@ export default function SurveyDescriptionPage() {
             </p>
             <div className="survey-details">
               <p className="details-item">
-                <strong>Время: </strong>{`${survey.time}`} минут
+                <strong>Время: </strong>{`${survey.completionTimeLimit}`} минут
               </p>
               <p className="details-item">
                 <strong>Стоимость: </strong>{`${survey.price}`}₽

@@ -17,7 +17,7 @@ export default function NavItem({index}: NavItemProps): JSX.Element {
     <li 
       className={cn("question-item", {
         'active': questionNumber === index,
-        'done': savedAnswers.find((savedAnswer) => savedAnswer.questionId === String(index)) && questionNumber !== index
+        'done': savedAnswers.find((savedAnswer, id) => id === index) && questionNumber !== index
       })}
       onClick={() => dispatch(changeQuestionNumber(index))}>
       <Link className="question-link" to="#">
