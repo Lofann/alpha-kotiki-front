@@ -5,12 +5,17 @@ import QuestionProps from "./question.props";
 import { QuestionType } from "../../const";
 import AnswerProps from "../answer/answer.props";
 import {  PossibleAnswer } from "../../types/answer";
+import DropDownListQuestion from "../questions/drop-down-list";
+import { useAppDispatch } from "../../hooks/store";
 
 
 
 
 
 export default function Question({ }: QuestionProps) {
+
+    const dispatch = useAppDispatch()
+    
 
     const questionRef = useRef<HTMLInputElement>(null);
     //const answersRef = useRef<Array<HTMLInputElement>>(null);
@@ -54,13 +59,7 @@ export default function Question({ }: QuestionProps) {
 
 
                 <div className="question-settings">
-                    <div className="category">
-                        <select className="choice-question-type">
-                            <option>Категория</option>
-                            <option>Пункт 2</option>
-                            <option>Пункт 2</option>
-                        </select>
-                    </div>
+                     {/* <DropDownListQuestion currentAnswers={survey.questions[questionNumber].variables} currentQuestionId={survey.questions[questionNumber].id}/> */}
 
                     <div className="right-settings">
                         <div className="switch-box">

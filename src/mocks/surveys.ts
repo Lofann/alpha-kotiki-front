@@ -15,21 +15,21 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'DropDownList',
         isRequired: true,
-        variables: ['Простоквашино', 'Домик в деревне', 'Кунгурское'],
+        variablesAnswer: ['Простоквашино', 'Домик в деревне', 'Кунгурское'],
       },
       {
         id: '1',
         name: 'Вы пробовали молоко фирмы «Первый вкус»?',
         type: 'RadioButton',
         isRequired: true,
-        variables: ['Да', 'Нет', 'В нашем городе нет такой марки', 'Впервые слышу'],
+        variablesAnswer: ['Да', 'Нет', 'В нашем городе нет такой марки', 'Впервые слышу'],
       },
       {
         id: '2',
         name: 'Как часто вы пьете молоко?',
         type: 'Checkbox',
         isRequired: true,
-        variables: ['Один раз в день', 'Один раз в неделю', 'Не пью молоко в чистом виде'],
+        variablesAnswer: ['Один раз в день', 'Один раз в неделю', 'Не пью молоко в чистом виде'],
       }
     ]
   },
@@ -46,14 +46,14 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'Checkbox',
         isRequired: true,
-        variables: ['Ответ 1', 'Ответ 2', 'Ответ 3', 'Ответ 4'],
+        variablesAnswer: ['Ответ 1', 'Ответ 2', 'Ответ 3', 'Ответ 4'],
       },
       {
         id: '1',
         name: 'Вопрос 2?',
         type: 'RadioButton',
         isRequired: true,
-        variables: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
+        variablesAnswer: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
       }
     ]
   },
@@ -70,14 +70,14 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'Checkbox',
         isRequired: true,
-        variables: ['Ответ 1', 'Ответ 2', 'Ответ 3', 'Ответ 4'],
+        variablesAnswer: ['Ответ 1', 'Ответ 2', 'Ответ 3', 'Ответ 4'],
       },
       {
         id: '1',
         name: 'Вопрос 2?',
         type: 'RadioButton',
         isRequired: true,
-        variables: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
+        variablesAnswer: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
       }
     ]
   },
@@ -94,14 +94,14 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'Checkbox',
         isRequired: true,
-        variables: ['Ответ 1', 'Ответ 2', 'Ответ 3', 'Ответ 4'],
+        variablesAnswer: ['Ответ 1', 'Ответ 2', 'Ответ 3', 'Ответ 4'],
       },
       {
         id: '1',
         name: 'Вопрос 2?',
         type: 'RadioButton',
         isRequired: true,
-        variables: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
+        variablesAnswer: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
       }
     ]
   },
@@ -118,14 +118,14 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'Checkbox',
         isRequired: true,
-        variables: ['Ответ 1', 'Ответ 2', 'Ответ 3', 'Ответ 4'],
+        variablesAnswer: ['Ответ 1', 'Ответ 2', 'Ответ 3', 'Ответ 4'],
       },
       {
         id: '1',
         name: 'Вопрос 2?',
         type: 'RadioButton',
         isRequired: true,
-        variables: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
+        variablesAnswer: ['Ответ 1', 'Ответ 2', 'Ответ 3'],
       }
     ]
   }

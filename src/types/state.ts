@@ -2,9 +2,10 @@ import { store } from "../store";
 import SurveyCards from "./survey-cards";
 import { SurveyCard } from "./survey-card";
 import { Answers } from "./answers";
-import Question from "../components/question/question.props";
-import { Survey } from "./survey";
+
 import { UUID } from "crypto";
+import { Survey } from "./survey";
+import { Question } from "./question";
 
 export type State = ReturnType<typeof store.getState>
 
@@ -17,16 +18,18 @@ export type PassingSurveyData = {
   answers: Answers
 }
 
-export type CreateSurveyData ={
+export type CreateSurveyData = {
+  survey: Survey,
+  question:Question
   //Questions: Array<Question>
-  CreatorId: String,
-  Name: string,
-  Description: string,
-  Price: number,
-  IsLimitedPublicationTime: boolean,
-  PublicationTimeLimit: Date|undefined,
-  UsagesLimit: number,
-  IsLimitedCompletionTime: number,
-  CompletionTimeLimit: number,
-  Questions: Array<Question>
+  // creatorId: string,
+  // name: string,
+  // description: string,
+  // price: number,
+  // isLimitedPublicationTime: boolean,
+  // publicationTimeLimit: Date|undefined,
+  // usagesLimit: number,
+  // isLimitedCompletionTime: number,
+  // completionTimeLimit: number,
+  // questions: Array<Question>
 }

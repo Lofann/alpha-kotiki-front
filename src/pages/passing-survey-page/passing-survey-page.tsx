@@ -23,11 +23,11 @@ export default function PassingSurveyPage(): JSX.Element {
     if (survey) {
       switch (survey.questions[questionNumber].type) {
         case 'RadioButton':
-          return <RadioButtonQuestion currentAnswers={survey.questions[questionNumber].variables} currentQuestionId={survey.questions[questionNumber].id}/>
+          return <RadioButtonQuestion currentAnswers={survey.questions[questionNumber].variablesAnswer} currentQuestionId={survey.questions[questionNumber].id}/>
         case 'Checkbox':
-          return <CheckBoxQuestion currentAnswers={survey.questions[questionNumber].variables} currentQuestionId={survey.questions[questionNumber].id}/>
+          return <CheckBoxQuestion currentAnswers={survey.questions[questionNumber].variablesAnswer} currentQuestionId={survey.questions[questionNumber].id}/>
         case 'DropDownList':
-          return <DropDownListQuestion currentAnswers={survey.questions[questionNumber].variables} currentQuestionId={survey.questions[questionNumber].id}/>
+          return <DropDownListQuestion currentAnswers={survey.questions[questionNumber].variablesAnswer} currentQuestionId={survey.questions[questionNumber].id}/>
       }
     }
   }
