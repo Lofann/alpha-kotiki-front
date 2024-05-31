@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet-async"
-import { useAppSelector } from "../../../hooks/store"
-import { getSurvey } from "../../../store/passing-survey-data/passing-survey.selectors"
-import Header from "../../../components/header/header"
+import { useAppSelector } from "../../hooks/store"
+import { getSurvey } from "../../store/passing-survey-data/passing-survey.selectors"
+import Header from "../../components/header/header"
 import { NavLink } from "react-router-dom"
-import { AppRoute } from "../../../const"
+import { AppRoute } from "../../const"
 import { useNavigate } from "react-router-dom"
 
 export default function CompletingSurveyPage(): JSX.Element {

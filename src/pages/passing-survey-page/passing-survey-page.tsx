@@ -59,7 +59,7 @@ export default function PassingSurveyPage(): JSX.Element {
               </nav>
               <div className="timer">
                 <div>Оставшееся время:</div>
-                <div className="time"><Timer minutes={survey.time}></Timer></div>
+                <div className="time"><Timer minutes={survey.completionTimeLimit}></Timer></div>
               </div>
             </div>
             <div className="question-block">

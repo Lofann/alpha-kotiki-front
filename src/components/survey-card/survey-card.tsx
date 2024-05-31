@@ -18,7 +18,7 @@ export default function SurveyCard({survey}: SurveyCardProps): JSX.Element {
       <div className="card-info">
         <div className="card-discripton">{getDescription(survey.description)}</div>
         <div className="time-and-price">
-          <div>{survey.time} минут</div>
+          <div>{survey.completionTimeLimit} минут</div>
           <div>{survey.price}₽</div>
         </div>
       </div>

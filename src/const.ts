@@ -8,9 +8,12 @@ export enum AppRoute {
   MyList = 'my-list',
   Profile = 'profile',
   NotFound = '*',
+  SurveyCompleting = 'survey-completing',
   СonstructorQuestions = 'survey-constructor-second-step',
 
+=========
   SurveyCompleting = 'survey-completing'
+>>>>>>>>> Temporary merge branch 2
 }
 
 // Статусы авторизации
@@ -25,9 +28,7 @@ export enum NameSpace {
   Creating = 'CREATING-SURVEY',
   Passing = 'PASSING-SURVEY'
 }
-export enum QuestionType{
-  Checkbox = 'Checkbox',
-  RadioButton = 'RadioButton',
-  DropDownList ='DropDownList',
-  Text ='Text',
+
+export enum APIRoute {
+  Surveys = '/Surveys'
 }

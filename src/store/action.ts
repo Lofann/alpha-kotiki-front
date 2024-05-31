@@ -1,11 +1,11 @@
 import { createAction } from "@reduxjs/toolkit";
 import { Answers } from "../types/answers";
 import { SurveyCard } from "../types/survey-card";
+import SurveyCards from "../types/survey-cards";
 import { Survey } from "../types/survey";
 import { Question } from "../types/question";
 
-
-export const getSurveys = createAction('data/get-surveys');
+export const getSurveys = createAction<SurveyCards>('data/get-surveys');
 
 export const setSurvey = createAction<SurveyCard>('data/set-survey')
 

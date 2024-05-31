@@ -8,18 +8,13 @@ import SurveyDescriptionPage from '../../pages/survey-description-page/survey-de
 import PrivateRoute from '../private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
 import PassingSurveyPage from '../../pages/passing-survey-page/passing-survey-page';
-import { useAppDispatch } from '../../hooks/store';
-import { getSurveys } from '../../store/action';
-import CompletingSurveyPage from '../../pages/main-page/completing-survey-page/completing-survey-page';
+import CompletingSurveyPage from '../../pages/completing-survey-page/completing-survey-page';
 import SurveyConstructorSecondStep from '../../pages/survey-constructor-second-step-page/survey-constructor-second-step-page';
-
 
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация
 export default function App(): JSX.Element {
   const authorizationStatus = AuthorizationStatus.Auth;
-  const dispatch = useAppDispatch()
-  dispatch(getSurveys())
 
   return (
     <HelmetProvider>
