@@ -1,4 +1,3 @@
-import { QuestionType } from "../const"
 import { PossibleAnswer } from "./answer"
 
 //Тип вопроса

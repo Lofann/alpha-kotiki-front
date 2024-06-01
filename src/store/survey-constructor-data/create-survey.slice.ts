@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { NameSpace } from '../../const';
 import { CreateSurveyData, PassingSurveyData } from '../../types/state';
 import { surveys } from '../../mocks/surveys';
-import { saveNewSurvey, updateQuestions } from '../action';
+import { deleteAnswer, deleteQuestion, pushAnswer, pushQuestion, saveNewSurvey, updateAnswer, updateQuestion, updateQuestions } from '../action';
 import { randomUUID } from 'crypto';
 
 const initialState: CreateSurveyData = {
@@ -16,18 +16,23 @@ const initialState: CreateSurveyData = {
         usagesLimit: 0,
         isLimitedCompletionTime: true,
         completionTimeLimit: 0,
-        questions: []
+        questions: [{
+            id: "0",
+            name: "1",
+            tooltip: "1",
+            type: "1",
+            isRequired: false,
+            variablesAnswer:[]
+        }]
     },
-    question: {
+    question: [{
         id: "",
         name: "",
         tooltip: "",
-
         type: "",
         isRequired: false,
-
         variablesAnswer:[]
-    }
+    }]
 }
 
 
@@ -56,28 +61,23 @@ export const createSurveyData = createSlice({
                 // state.question.isRequired = action.payload.isRequired
                 // state.question.variablesAnswer = action.payload.variablesAnswer
                 state.survey.questions = action.payload})
+                .addCase(pushQuestion, (state, action) => {
+                    state.survey.questions.push(action.payload)
+                }).addCase(deleteQuestion, (state, action) => {
+                    // state.survey.questions.filter((question)=> question.id != action.payload);
+                       state.survey.questions.splice(Number(action.payload),1) 
 
-
-
-        // .addCase(setDescriptionSurvey, (state, action) =>{
-        //     state.description = action.payload
-        // })
-        // .addCase(setPriceSurvey, (state, action) =>{
-        //     state.price = action.payload
-        // })
-        // .addCase(setIsLimitedPublicationTimeSurvey, (state, action) =>{
-        //     state.isLimitedPublicationTime = action.payload
-        // })
-        // .addCase(setPublicationTimeLimitSurvey, (state, action) =>{
-        //     state.publicationTimeLimit = action.payload
-        // })
-        // .addCase(setUsagesLimitSurvey, (state, action) =>{
-        //     state.usagesLimit = action.payload
-        // })
-        // .addCase(setIsLimitedCompletionTimeSurvey, (state, action) =>{
-        //     state.isLimitedCompletionTime = action.payload
-        // })
-        // .addCase(setCompletionTimeLimitSurvey, (state, action) =>{
-        //     state.completionTimeLimit = action.payload
-        // })
-        }})
+                }).addCase(deleteAnswer, (state, action) => {
+                    state.survey.questions[Number(action.payload.questionId)].variablesAnswer.splice( Number(action.payload.id),1)
+                }).addCase(pushAnswer, (state, action) =>  {
+                    state.survey.questions[Number(action.payload.questionId)].variablesAnswer.push(action.payload.value)
+                }).addCase(updateAnswer, (state, action) =>  {
+                    state.survey.questions[Number(action.payload.questionId)].variablesAnswer[Number(action.payload.id)] = (action.payload.value)
+                }).addCase(updateQuestion, (state, action) =>  {
+                    state.survey.questions[Number(action.payload.id)] = (action.payload)
+                })
+                
+                
+                
+        }
+})

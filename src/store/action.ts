@@ -4,6 +4,7 @@ import { SurveyCard } from "../types/survey-card";
 import SurveyCards from "../types/survey-cards";
 import { Survey } from "../types/survey";
 import { Question } from "../types/question";
+import { Answer, PossibleAnswer } from "../types/answer";
 
 export const getSurveys = createAction<SurveyCards>('data/get-surveys');
 
@@ -40,5 +41,19 @@ export const saveNewSurvey = createAction<Survey>('data/survey-constructor/creat
 export const updateQuestions = createAction<Array<Question>>('data/survey-constructor/update-questions')
 
 // export const getQuestions = createAction('data/survey-constructor/update-questions')
+
+ export const pushQuestion = createAction<Question>("data/survey-constructor/push-question")
+
+ export const deleteQuestion = createAction<String>("data/survey-constructor/delete-question")
+
+ export const updateQuestion = createAction<Question>('data/survey-constructor/update-question')
+
+ 
+
+ export const pushAnswer = createAction<PossibleAnswer>("data/survey-constructor/push-answer")
+ 
+ export const deleteAnswer = createAction<PossibleAnswer>("data/survey-constructor/delete-answer")
+
+ export const updateAnswer = createAction<PossibleAnswer>("data/survey-constructor/update-answer")
 
  

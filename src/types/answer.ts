@@ -1,9 +1,9 @@
-import { QuestionType } from "../const"
+//import { QuestionType } from "../const"
 
 export type PossibleAnswer = {
-    id: number,
-    Type : QuestionType,
-    Value: string
+    id: string,
+    questionId: string,
+    value: string
 }
 export type Answer = {
   questionId: string,

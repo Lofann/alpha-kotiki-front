@@ -20,7 +20,7 @@ export type PassingSurveyData = {
 
 export type CreateSurveyData = {
   survey: Survey,
-  question:Question
+  question:Question[]
   //Questions: Array<Question>
   // creatorId: string,
   // name: string,

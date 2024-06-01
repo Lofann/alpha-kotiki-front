@@ -11,9 +11,7 @@ export enum AppRoute {
   SurveyCompleting = 'survey-completing',
   СonstructorQuestions = 'survey-constructor-second-step',
 
-=========
-  SurveyCompleting = 'survey-completing'
->>>>>>>>> Temporary merge branch 2
+
 }
 
 // Статусы авторизации

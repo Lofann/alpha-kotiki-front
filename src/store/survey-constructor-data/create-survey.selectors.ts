@@ -26,8 +26,8 @@ import Question from "../../components/question/question.props";
 
 export const createNewSurvey = (state: Pick<State, NameSpace.Creating>):Survey => state[NameSpace.Creating].survey
 
+export const getQuestions = (state: Pick<State, NameSpace.Creating>): Array<Question> | undefined => state[NameSpace.Creating].survey.questions
 
-export const getQuestions = (state: Pick<State, NameSpace.Passing>): Array<Question> | undefined => state[NameSpace.Passing].survey?.questions
 
-
+// export const pushQuestion =(state)
 //export const saveNewSurvey = createAction<Survey>('data/survey-constructor/saveSurvey')

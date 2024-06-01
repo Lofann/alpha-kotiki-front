@@ -1,3 +1,5 @@
+import { PossibleAnswer } from "../../types/answer"
+
 type Question = {
 
     id: string,
@@ -6,7 +8,7 @@ type Question = {
     //type: QuestionType,
     type:string
     isRequired: boolean,
-    //variables: Array<PossibleAnswer>,
+    // variablesAnswer: Array<PossibleAnswer>,
     variablesAnswer:Array<string>
 }
 

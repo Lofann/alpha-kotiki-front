@@ -5,9 +5,11 @@ import { useAppDispatch } from "../../hooks/store"
 import { useState } from "react"
 import Question from "../../components/question/question.props"
 
+
 // Компонент главной страницы
 export default function SurveyConstructorSecondStep(): JSX.Element {
   const dispatch = useAppDispatch()
+  
 
   const [questions, setQuestuions] = useState<Array<Question>>()
   
@@ -19,6 +21,7 @@ export default function SurveyConstructorSecondStep(): JSX.Element {
       <Header/>
       <div className="wrapper">
         <QuestionConstructor/>
+        useUp
       </div>
       asd
     </>
