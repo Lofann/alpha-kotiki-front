@@ -44,7 +44,7 @@ export default function QuestionConstructor(): JSX.Element {
 
     return (
         <>
-            <div className="question">
+            <div className="question add">
 
                 {questions?.map((question, index) => (<Question
                     id={String(index)}
@@ -54,7 +54,7 @@ export default function QuestionConstructor(): JSX.Element {
                     variablesAnswer={question.variablesAnswer}
                 />
                 ))}
-                <button onClick={() => handleAddQuestion(String(questions?.length))}>+</button>
+                <button className="add-btn" onClick={() => handleAddQuestion(String(questions?.length))}>+</button>
 
             </div>
         </>
