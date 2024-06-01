@@ -28,8 +28,17 @@ export default function Answer(props: PossibleAnswer):JSX.Element{
     return(
         <>
         <div className="answer">
-        <input onChange={e=>handlerUpdateAnswer(props.questionId,props.id,e.target.value)} defaultValue={props.value} className="question-title"></input>
-        <button onClick={()=>handlerdeleteAnswer(props.questionId, props.id)}>x</button>
+            <span>{Number(props.id)+1}.</span>
+        <input 
+            onChange={e=>handlerUpdateAnswer(props.questionId,props.id,e.target.value)}
+            defaultValue={props.value}
+            className="answer emphasized"
+            placeholder="Введите вариант ответа">
+    
+
+            </input>
+        <button className = "answer-delete" onClick={()=>handlerdeleteAnswer(props.questionId, props.id)}>x</button>
+    
         </div>
 
         {value}

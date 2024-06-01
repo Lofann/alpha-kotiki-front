@@ -39,7 +39,7 @@
 
 .question-title{ 
     width: 100%;
-    display: inline-flex;
+
     height: 32px;
     font-size: 24px;
 
@@ -52,6 +52,7 @@
     cursor: pointer;
     padding-top: 5px;
     padding-bottom: 5px;
+    
 }
 
 .question-title:active, :focus{
@@ -61,20 +62,28 @@
 }
 
 .answers-list{
+    font-size: 16px;
     width: 100%;
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0px;
-    margin-bottom:32px ;
+    margin-bottom:32px;
 }
 
 .answer{
+    padding: 5px;
     width: 100%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 6px;
+    gap: 16px;
+    border: none;
+    border-bottom:1px #757575;
+}
+
+.emphasized{
+    border-bottom: 1px solid #757575;
 }
 
 .answer-text{
@@ -85,8 +94,9 @@
 }
 
 .answer-delete{
-    border: 0px solid #FFF;
+    border: none;
     background-color: #FFF;
+    color: #757575;
 }
 
 .answer-type{
@@ -98,13 +108,21 @@
 }
 
 .answer-add{
-    color: #757575;
+    padding-right:15px;
+    padding-left: 15px;
+    font-size: 20px;
+    background-color: #005BFF;
+    color: #FFF;
+    border:1px solid #005BFF ;
+    border-radius: 25px;
+    outline: none;
 }
 .answer-add-another{
     color: #005BFF;
 }
 
 .adding{
+    margin-top: 16px;
     width: 100%;
 }
 
@@ -122,8 +140,8 @@
 }
 
 .right-settings{
-    display: inline-flex;
-    gap: 14px
+    display: flex;
+    align-items: center;
 }
 
 i{
@@ -230,6 +248,7 @@ input:checked + .slider:before {
 }
 
 .add-btn{
+    
     border: 0px solid #005BFF;
     border-radius: 100%;
     background-color: #005BFF;

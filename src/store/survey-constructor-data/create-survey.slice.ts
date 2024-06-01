@@ -18,9 +18,8 @@ const initialState: CreateSurveyData = {
         completionTimeLimit: 0,
         questions: [{
             id: "0",
-            name: "1",
-            tooltip: "1",
-            type: "1",
+            name: "",
+            type: "Checkbox",
             isRequired: false,
             variablesAnswer:[]
         }]
