@@ -28,5 +28,6 @@ export enum NameSpace {
 }
 
 export enum APIRoute {
-  Surveys = '/Surveys'
+  Surveys = '/Surveys',
+  CreateSurveys = '/Surveys/create'
 }

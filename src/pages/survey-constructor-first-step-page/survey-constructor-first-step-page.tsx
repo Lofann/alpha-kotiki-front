@@ -56,7 +56,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
       creatorId: "",
       description: normalizeTextData(descriptionRef),
       price: normalizeNumberData(priceRef),
-      isLimitedPublicationTime: validateTimeLimit(dateRef),
+      isLimitedPublicationTime: true,
       publicationTimeLimit: normalizeTimeLimit(dateRef),
       usagesLimit: normalizeNumberData(usagesLimitRef),
       isLimitedCompletionTime: isLimitedCompletionTimeRef,
@@ -215,7 +215,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                         <input
                           disabled = {!isLimitedCompletionTimeRef}
                           ref={completionTimeLimitRef}
-                          type="input"
+                          type="number"
                           className="field time-field"
                           placeholder="Длительность опроса"
                           defaultValue={newSurvey.completionTimeLimit}

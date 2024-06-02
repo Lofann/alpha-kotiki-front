@@ -4,6 +4,7 @@ import { CreateSurveyData, PassingSurveyData } from '../../types/state';
 import { surveys } from '../../mocks/surveys';
 import { deleteAnswer, deleteQuestion, pushAnswer, pushQuestion, saveNewSurvey, updateAnswer, updateQuestion, updateQuestions } from '../action';
 import { randomUUID } from 'crypto';
+import { postNewSurvey } from '../api-action';
 
 const initialState: CreateSurveyData = {
     survey: {
@@ -21,7 +22,7 @@ const initialState: CreateSurveyData = {
             name: "",
             type: "Checkbox",
             isRequired: false,
-            variablesAnswer:[]
+            variablesAnswer: []
         }]
     },
     question: [{
@@ -30,7 +31,7 @@ const initialState: CreateSurveyData = {
         tooltip: "",
         type: "",
         isRequired: false,
-        variablesAnswer:[]
+        variablesAnswer: []
     }]
 }
 
@@ -54,29 +55,28 @@ export const createSurveyData = createSlice({
                 state.survey.completionTimeLimit = action.payload.completionTimeLimit
                 state.survey.questions = action.payload.questions
             }).addCase(updateQuestions, (state, action) => {
-                // state.question.id = action.payload.id
-                // state.question.name = action.payload.name
-                // state.question.tooltip = action.payload.tooltip
-                // state.question.isRequired = action.payload.isRequired
-                // state.question.variablesAnswer = action.payload.variablesAnswer
-                state.survey.questions = action.payload})
-                .addCase(pushQuestion, (state, action) => {
-                    state.survey.questions.push(action.payload)
-                }).addCase(deleteQuestion, (state, action) => {
-                    // state.survey.questions.filter((question)=> question.id != action.payload);
-                       state.survey.questions.splice(Number(action.payload),1) 
+                state.survey.questions = action.payload
+            })
+            .addCase(pushQuestion, (state, action) => {
+                state.survey.questions.push(action.payload)
+            }).addCase(deleteQuestion, (state, action) => {
+                // state.survey.questions.filter((question)=> question.id != action.payload);
+                state.survey.questions.splice(Number(action.payload), 1)
 
-                }).addCase(deleteAnswer, (state, action) => {
-                    state.survey.questions[Number(action.payload.questionId)].variablesAnswer.splice( Number(action.payload.id),1)
-                }).addCase(pushAnswer, (state, action) =>  {
-                    state.survey.questions[Number(action.payload.questionId)].variablesAnswer.push(action.payload.value)
-                }).addCase(updateAnswer, (state, action) =>  {
-                    state.survey.questions[Number(action.payload.questionId)].variablesAnswer[Number(action.payload.id)] = (action.payload.value)
-                }).addCase(updateQuestion, (state, action) =>  {
-                    state.survey.questions[Number(action.payload.id)] = (action.payload)
-                })
-                
-                
-                
-        }
+            }).addCase(deleteAnswer, (state, action) => {
+                state.survey.questions[Number(action.payload.questionId)].variablesAnswer.splice(Number(action.payload.id), 1)
+            }).addCase(pushAnswer, (state, action) => {
+                state.survey.questions[Number(action.payload.questionId)].variablesAnswer.push(action.payload.value)
+            }).addCase(updateAnswer, (state, action) => {
+                state.survey.questions[Number(action.payload.questionId)].variablesAnswer[Number(action.payload.id)] = (action.payload.value)
+            }).addCase(updateQuestion, (state, action) => {
+                state.survey.questions[Number(action.payload.id)] = (action.payload)
+            })
+            .addCase(postNewSurvey.fulfilled, (state, action) => {
+                action.meta.arg.survey = state.survey
+              })
+
+
+
+    }
 })

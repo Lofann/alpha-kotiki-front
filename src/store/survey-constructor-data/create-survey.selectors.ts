@@ -29,5 +29,6 @@ export const createNewSurvey = (state: Pick<State, NameSpace.Creating>):Survey =
 export const getQuestions = (state: Pick<State, NameSpace.Creating>): Array<Question> | undefined => state[NameSpace.Creating].survey.questions
 
 
+
 // export const pushQuestion =(state)
 //export const saveNewSurvey = createAction<Survey>('data/survey-constructor/saveSurvey')
