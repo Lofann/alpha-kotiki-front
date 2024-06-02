@@ -103,8 +103,8 @@ export default function Question({ id,
                     <div className="right-settings">
                     <div className="category">
               <select className="choice-question-type" ref={questionTypeRef} onInput={e=>{handlerUpdateQuestion(name,questionTypeRef.current?.value)}}>
-                <option>RadioButton</option>
                 <option>Checkbox</option>
+                <option>RadioButton</option>
                 <option>DropDownList</option>
               </select>
             </div>
