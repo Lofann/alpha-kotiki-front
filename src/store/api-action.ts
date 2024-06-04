@@ -4,7 +4,6 @@ import SurveyCards from "../types/survey-cards";
 import { APIRoute } from "../const";
 import { AppDispatch, State } from "../types/state";
 import { FullSurvey } from "../types/full-survey";
-import Question from "../components/question/question.props";
 import { Survey } from "../types/survey";
 
 export const fetchSurveysAction = createAsyncThunk<{surveys: SurveyCards}, undefined, {
