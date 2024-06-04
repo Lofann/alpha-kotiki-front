@@ -4,7 +4,7 @@ import { NavLink, useParams, useNavigate } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { AppRoute } from "../../const";
 import { getSurvey, getSurveyLoadingStatus } from "../../store/passing-survey-data/passing-survey.selectors";
-import { setSurvey } from "../../store/action";
+import { resetAnswers, resetQuestionNumber, setSurvey } from "../../store/action";
 import { fetchSurvey } from "../../store/api-action";
 import { useEffect } from "react";
 import Loader from "../../components/loader/loader";
@@ -15,10 +15,12 @@ export default function SurveyDescriptionPage() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    dispatch(resetQuestionNumber())
+    dispatch(resetAnswers())
     if (id) {
       dispatch(fetchSurvey({id: id}))
     }
-  },[id])
+  }, [id])
   
   const loadingStatus = useAppSelector(getSurveyLoadingStatus)
   const survey = useAppSelector(getSurvey)

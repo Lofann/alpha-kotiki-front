@@ -1,6 +1,6 @@
 import Header from "../../components/header/header"
 import { Helmet } from "react-helmet-async"
-import { NavLink} from "react-router-dom"
+import { NavLink, useParams} from "react-router-dom"
 import { AppRoute } from "../../const";
 import { useEffect } from "react";
 import CheckBoxQuestion from "../../components/questions/check-box";
@@ -9,15 +9,17 @@ import DropDownListQuestion from "../../components/questions/drop-down-list";
 import Timer from "../../components/timer/timer";
 import NavBarQuestions from "../../components/questions-navbar/navbar";
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
-import { resetQuestionNumber, resetAnswers } from "../../store/action";
 import ProgressBar from "../../components/progress-bar/progress-bar";
 import PassingButtons from "../../components/buttons-group/passing-buttons";
-import { getSurvey, getQuestionNumber } from "../../store/passing-survey-data/passing-survey.selectors";
+import { getSurvey, getQuestionNumber, getSurveyLoadingStatus } from "../../store/passing-survey-data/passing-survey.selectors";
+import { fetchSurvey } from "../../store/api-action";
 
 export default function PassingSurveyPage(): JSX.Element {
+  const id = useParams().id
   const dispatch = useAppDispatch()
   const questionNumber = useAppSelector(getQuestionNumber)
   const survey = useAppSelector(getSurvey)
+  const loadingStatus = useAppSelector(getSurveyLoadingStatus)
 
   const getQuestion = () => {
     if (survey) {
@@ -33,11 +35,12 @@ export default function PassingSurveyPage(): JSX.Element {
   }
 
   useEffect(() => {
-    dispatch(resetQuestionNumber())
-    dispatch(resetAnswers())
+    if (id) {
+      dispatch(fetchSurvey({id: id}))
+    }
   },[])
 
-  if (survey) {
+  if (survey && !loadingStatus) {
     return(
       <>
         <Helmet>
