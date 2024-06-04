@@ -15,21 +15,21 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'DropDownList',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       },
       {
         id: '1',
         name: 'Вы пробовали молоко фирмы «Первый вкус»?',
         type: 'RadioButton',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       },
       {
         id: '2',
         name: 'Как часто вы пьете молоко?',
         type: 'Checkbox',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       }
     ]
   },
@@ -46,14 +46,14 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'Checkbox',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       },
       {
         id: '1',
         name: 'Вопрос 2?',
         type: 'RadioButton',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       }
     ]
   },
@@ -70,14 +70,14 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'Checkbox',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       },
       {
         id: '1',
         name: 'Вопрос 2?',
         type: 'RadioButton',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       }
     ]
   },
@@ -94,14 +94,14 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'Checkbox',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       },
       {
         id: '1',
         name: 'Вопрос 2?',
         type: 'RadioButton',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       }
     ]
   },
@@ -118,14 +118,14 @@ export const surveys: SurveyCards = [
         tooltip: '*Выберите один или несколько ответов',
         type: 'Checkbox',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       },
       {
         id: '1',
         name: 'Вопрос 2?',
         type: 'RadioButton',
         isRequired: true,
-        variablesAnswer: [],
+        variables: [],
       }
     ]
   }

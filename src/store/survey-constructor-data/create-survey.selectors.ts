@@ -4,7 +4,7 @@ import SurveyCards from "../../types/survey-cards";
 import { Answers } from "../../types/answers";
 import { SurveyCard } from "../../types/survey-card";
 import { Survey } from "../../types/survey";
-import Question from "../../components/question/question.props";
+import { Question } from "../../types/question";
 
 // export const setSurveyData = (state: Pick<State, NameSpace.Creating>):Survey|undefined => state[NameSpace.Creating].selector
 

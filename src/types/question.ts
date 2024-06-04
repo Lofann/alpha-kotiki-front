@@ -9,5 +9,5 @@ export type Question = {
   type:string
   isRequired: boolean,
   //variables: Array<PossibleAnswer>,
-  variablesAnswer:Array<string>
+  variables:Array<string>
 }
