@@ -6,6 +6,7 @@ import { AppDispatch, State } from "../types/state";
 import { FullSurvey } from "../types/full-survey";
 import Question from "../components/question/question.props";
 import { Survey } from "../types/survey";
+import { FullAnswer } from "../types/full-answer";
 
 export const fetchSurveysAction = createAsyncThunk<{surveys: SurveyCards}, undefined, {
   dispatch: AppDispatch;
@@ -31,17 +32,16 @@ export const fetchSurvey = createAsyncThunk<FullSurvey, {id: string}, {
   }
 );
 
-// export const postNewSurvey = createAsyncThunk<undefined, {question: Question}, {
-//   dispatch: AppDispatch;
-//   state: State;
-//   extra: AxiosInstance;
-// }>(
-//   'data/fetchSurvey',
-//   async ({question}, {extra: api}) => {
-//     const {data} = await api.post<Question>(`${APIRoute.CreateSurveys}`);
-//     return data;
-//   }
-// );
+export const addAnswers = createAsyncThunk<void, FullAnswer, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'data/addSurveyAnswers',
+  async ({userId, answers}, {extra: api}) => {
+    await api.post<FullAnswer>(`${APIRoute.Surveys}${APIRoute.PostAnswers}`, {userId, answers});
+  }
+);
 
 export const postNewSurvey = createAsyncThunk<String, {survey:Survey}, {
   dispatch: AppDispatch;

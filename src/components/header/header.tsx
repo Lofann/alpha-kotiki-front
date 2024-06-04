@@ -19,9 +19,9 @@ export default function Header(): JSX.Element {
                 Главная страница
               </NavLink>
               <NavLink 
-                  to={`/${AppRoute.NotFound}`} 
+                  to={`/${AppRoute.Сonstructor}`} 
                   className={({isActive}) => isActive? "top-item active" : "top-item"}>
-                Интервью
+                Создать опрос
               </NavLink>
               <NavLink 
                   to={`/${AppRoute.Surveys}`} 

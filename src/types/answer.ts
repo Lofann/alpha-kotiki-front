@@ -7,5 +7,5 @@ export type PossibleAnswer = {
 }
 export type Answer = {
   questionId: string,
-  answers: string[]
+  values: string[]
 }

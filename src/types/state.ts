@@ -16,6 +16,8 @@ export type PassingSurveyData = {
   survey: SurveyCard | undefined,
   question: number, 
   answers: Answers
+  isSurveysDataLoading: boolean,
+  isSurveyDataLoading: boolean
 }
 
 export type CreateSurveyData = {

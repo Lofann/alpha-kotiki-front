@@ -15,7 +15,9 @@ const initialState: PassingSurveyData = {
   surveys: [],
   survey: undefined,
   question: 0,
-  answers: []
+  answers: [],
+  isSurveysDataLoading: false,
+  isSurveyDataLoading: false
 };
 
 export const passingSurveyData = createSlice({
@@ -24,11 +26,19 @@ export const passingSurveyData = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
+    .addCase(fetchSurveysAction.pending, (state) => {
+      state.isSurveysDataLoading = true
+    })
     .addCase(fetchSurveysAction.fulfilled, (state, action) => {
       state.surveys = action.payload.surveys
+      state.isSurveysDataLoading = false
+    })
+    .addCase(fetchSurvey.pending, (state) => {
+      state.isSurveyDataLoading = true
     })
     .addCase(fetchSurvey.fulfilled, (state, action) => {
       state.survey = { ...action.payload.survey, questions: action.payload.questions}
+      state.isSurveyDataLoading = false
     })
     .addCase(getSurveys, (state, action) => {
       state.surveys = action.payload

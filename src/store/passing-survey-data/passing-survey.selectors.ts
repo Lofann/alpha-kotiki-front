@@ -13,3 +13,6 @@ export const getQuestionNumber = (state: Pick<State, NameSpace.Passing>): number
 
 export const getAnswers = (state: Pick<State, NameSpace.Passing>): Answers => state[NameSpace.Passing].answers
 
+export const getSurveysLoadingStatus = (state: Pick<State, NameSpace.Passing>): boolean => state[NameSpace.Passing].isSurveysDataLoading
+
+export const getSurveyLoadingStatus = (state: Pick<State, NameSpace.Passing>): boolean => state[NameSpace.Passing].isSurveyDataLoading

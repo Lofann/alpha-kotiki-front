@@ -7,7 +7,7 @@ type ProgressBarProps = {
 }
 
 export default function ProgressBar({survey}: ProgressBarProps): JSX.Element {
-  const savedAnswers = useAppSelector(getAnswers).filter((answer) => answer.answers.length !== 0)
+  const savedAnswers = useAppSelector(getAnswers).filter((answer) => answer.values.length !== 0)
   const getProgress = () => {
     let count = savedAnswers.length
     return count / survey.questions.length * 100

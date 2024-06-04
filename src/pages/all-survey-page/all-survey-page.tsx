@@ -5,7 +5,8 @@ import { useAppSelector } from "../../hooks/store";
 import { ChangeEvent, useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import PagginationBar from "../../components/pagination-bar/pagination-bar";
-import { getSurveys } from "../../store/passing-survey-data/passing-survey.selectors";
+import { getSurveys, getSurveysLoadingStatus } from "../../store/passing-survey-data/passing-survey.selectors";
+import Loader from "../../components/loader/loader";
 
 // Фильтрация по поиску
 const filterBySearch = (searchValue: string, surveys: SurveyCard[]) => {
@@ -19,6 +20,7 @@ const filterBySearch = (searchValue: string, surveys: SurveyCard[]) => {
 // Страница со всеми опросами
 export default function AllSurvey() :JSX.Element {
   const surveys = useAppSelector(getSurveys)
+  const loadingStatus = useAppSelector(getSurveysLoadingStatus)
   const [searchValue, setSearchValue] = useState('');
   const [relevantSurveys, setRelevantSurveys] = useState(surveys);
 
@@ -36,7 +38,7 @@ export default function AllSurvey() :JSX.Element {
     }, 300);
 
     return () => clearTimeout(debounce);
-  }, [searchValue])
+  }, [searchValue, surveys])
 
   if (surveys) {
     return(
@@ -69,8 +71,8 @@ export default function AllSurvey() :JSX.Element {
                 </select>
               </div>
             </div>
-            <SurveyCardsList surveys={relevantSurveys}/>
-            <PagginationBar/>
+            {loadingStatus? <Loader/> : <SurveyCardsList surveys={relevantSurveys}/>}
+            {/* <PagginationBar/> */}
           </main>
         </div>
       </>
