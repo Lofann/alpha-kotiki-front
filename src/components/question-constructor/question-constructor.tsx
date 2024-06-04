@@ -1,63 +1,63 @@
+import { FormEvent, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
+import Question from "../question/question";
 import QuestionConstructorProps from "./question-constructor.props";
+import { Question as QuestionType } from "../../types/question";
+import { getQuestions } from "../../store/survey-constructor-data/create-survey.selectors";
+import { pushQuestion } from "../../store/action";
 
-export default function QuestionConstructor({ }: QuestionConstructorProps): JSX.Element {
+export default function QuestionConstructor(): JSX.Element {
+    const dispatch = useAppDispatch()
+
+    const questions = useAppSelector(getQuestions)
+    // const [questions, setQuestuions] = useState<Array<QuestionType>>()
+
+
+
+    const handleCompliteButtonClick = (evt: FormEvent<HTMLButtonElement>) => {
+        evt.preventDefault()
+
+
+    }
+
+    const handleDeleteQuestion = (evt: FormEvent<HTMLButtonElement>) => {
+        evt.preventDefault()
+
+    }
+    const handleAddQuestion = (id: string) => {
+        dispatch(pushQuestion({
+            id: id,
+            name: id,
+            tooltip: "",
+            type: "",
+            isRequired: false,
+            variablesAnswer: []
+        }))
+    }
+
+    const getQuestionData = () => {
+
+        console.log(questions)
+
+        return
+    }
+
     return (
-            <>
-            <div className="question">
-            <div className="question-number">Вопрос 1</div>
-            <input className="question-title" type="text" placeholder="Текст Вопроса" />
-            <div className="answers-list">
+        <>
+            <div className="question add">
 
-                <div className="answer">
-                    <input className="answer-type" type="checkbox" />
-                    <input className="answer-text" type="text" placeholder="Вопрос" />
-                    <button className="answer-delete">x</button>
-                </div>
+                {questions?.map((question, index) => (<Question
+                    id={String(index)}
+                    name={question.name}
+                    type={question.type}
+                    isRequired={question.isRequired}
+                    variablesAnswer={question.variablesAnswer}
+                />
+                ))}
+                <button className="add-btn" onClick={() => handleAddQuestion(String(questions?.length))}>+</button>
 
-                <div className="answer">
-                    <input className="answer-type" type="checkbox" />
-                    <input className="answer-text" type="text" placeholder="Вопрос" />
-                    <button className="answer-delete">x</button>
-                </div>
-
-                <div className="answer">
-                    <input className="answer-type" type="checkbox" />
-                    <input className="answer-text" type="text" placeholder="Вопрос" />
-                    <button className="answer-delete">x</button>
-                </div>
-                <div className="answer adding">
-                    <div className="answer-add">Добавить ответ</div>
-                    или
-                    <div className="answer-add-another">Добавить вариант "Другое"</div>
-                </div>
             </div>
-            <hr/>
-                <div className="question-settings">
-                    <div className="category">
-                        <select className="choice-question-type">
-                            <option>Категория</option>
-                            <option>Пункт 2</option>
-                            <option>Пункт 2</option>
-                        </select>
-                    </div>
-
-                    <div className="right-settings">
-                        <div className="switch-box">
-                            <label className="switch">
-                                <input type="checkbox" />
-                                <span className="slider round"></span>
-                            </label>
-                            <label>Обязательный</label>
-                        </div>
-
-                        <i className="icon-copy"></i>
-                        <i className="icon-settings"></i>
-                        <i className="vertical-line"></i>
-                        <i className="icon-trash"></i>
-                    </div>
-                </div>
-                </div>
-            </>
-            )
+        </>
+    )
 }
 

@@ -10,6 +10,8 @@ export enum AppRoute {
   NotFound = '*',
   SurveyCompleting = 'survey-completing',
   СonstructorQuestions = 'survey-constructor-second-step',
+
+
 }
 
 // Статусы авторизации
@@ -28,4 +30,5 @@ export enum NameSpace {
 export enum APIRoute {
   Surveys = '/Surveys',
   PostAnswers = '/post-answers'
+  CreateSurveys = '/Surveys/create'
 }
