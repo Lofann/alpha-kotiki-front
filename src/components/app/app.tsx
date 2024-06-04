@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Routes  } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import AllSurvey from '../../pages/all-survey-page/all-survey-page';
@@ -37,7 +36,6 @@ export default function App(): JSX.Element {
               <Route path={AppRoute.SurveyPassing} element={<PassingSurveyPage/>}/>
               <Route path={AppRoute.SurveyCompleting} element={<CompletingSurveyPage/>}/>
             </Route>
-            <Route path=':id' element={<SurveyDescriptionPage/>}/>
           </Route>
           <Route
             path={AppRoute.Сonstructor}
