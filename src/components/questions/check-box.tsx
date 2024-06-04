@@ -8,11 +8,11 @@ import { getAnswers } from "../../store/passing-survey-data/passing-survey.selec
 export default function CheckBoxQuestion({currentAnswers, currentQuestionId}: QuestionProps): JSX.Element {
   const dispatch = useAppDispatch()
   const savedAnswers = useAppSelector(getAnswers)
-  const [answers, setAnswers] = useState<string[] | undefined>(savedAnswers.find((answer) => answer.questionId === currentQuestionId)?.answers)
+  const [answers, setAnswers] = useState<string[] | undefined>(savedAnswers.find((answer) => answer.questionId === currentQuestionId)?.values)
   
   useEffect(() => {
     if (answers) {
-      dispatch(updateAnswers([...filterAnswers(savedAnswers, currentQuestionId), {questionId:currentQuestionId, answers: answers}]))
+      dispatch(updateAnswers([...filterAnswers(savedAnswers, currentQuestionId), {questionId:currentQuestionId, values: answers}]))
     }
   }, [answers])
 
