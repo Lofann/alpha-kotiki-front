@@ -13,7 +13,7 @@ export default function DropDownListQuestion({currentAnswers, currentQuestionId}
 
   useEffect(() => {
     if (answer) {
-      dispatch(updateAnswers([...filterAnswers(), {questionId:currentQuestionId, answers: [answer]}]))
+      dispatch(updateAnswers([...filterAnswers(), {questionId:currentQuestionId, values: [answer]}]))
     }
   }, [answer])
 
@@ -28,12 +28,12 @@ export default function DropDownListQuestion({currentAnswers, currentQuestionId}
   }
 
   const getOptionStatus = (answer: string) => {
-    return answer === savedAnswers.find((savedAnswer) => savedAnswer.questionId === currentQuestionId)?.answers[0]
+    return answer === savedAnswers.find((savedAnswer) => savedAnswer.questionId === currentQuestionId)?.values[0]
   }
 
   const disableOption = () => {
     const l = savedAnswers.find((answer) => answer.questionId === currentQuestionId)
-    return l?.answers.length !== 0
+    return l?.values.length !== 0
   }
 
   return (

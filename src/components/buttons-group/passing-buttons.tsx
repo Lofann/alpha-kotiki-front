@@ -5,6 +5,8 @@ import { changeQuestionNumber } from "../../store/action";
 import { SurveyCard } from "../../types/survey-card";
 import { getAnswers, getQuestionNumber } from "../../store/passing-survey-data/passing-survey.selectors";
 import { AppRoute } from "../../const";
+import { addAnswers } from "../../store/api-action";
+import { userId } from "../../mocks/user";
 
 type PassingButtonsProps = {
   survey: SurveyCard
@@ -25,12 +27,13 @@ export default function PassingButtons({survey}: PassingButtonsProps): JSX.Eleme
     if (questionNumber !== lastQuestionNumber) {
       dispatch(changeQuestionNumber(questionNumber + 1))
     } else {
+      dispatch(addAnswers({userId: userId, answers: savedAnswers}))
       navigate(`/surveys/${survey.id}/${AppRoute.SurveyCompleting}`)
     }
   }
 
   const disableNextButton = () => {
-    return questionNumber === lastQuestionNumber && savedAnswers.filter((item) => item.answers.length !== 0).length !== survey.questions.length
+    return questionNumber === lastQuestionNumber && savedAnswers.filter((item) => item.values.length !== 0).length !== survey.questions.length
   }
 
   return (

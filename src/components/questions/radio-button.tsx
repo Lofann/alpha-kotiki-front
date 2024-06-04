@@ -11,7 +11,7 @@ export default function RadioButtonQuestion({currentAnswers, currentQuestionId}:
 
   useEffect(() => {
     if (answer) {
-      dispatch(updateAnswers([...filterAnswers(), {questionId:currentQuestionId, answers: [answer]}]))
+      dispatch(updateAnswers([...filterAnswers(), {questionId:currentQuestionId, values: [answer]}]))
     }
   }, [answer])
 
@@ -29,7 +29,7 @@ export default function RadioButtonQuestion({currentAnswers, currentQuestionId}:
         <div key={index} className="form-check" onChange={() => answerClickHandler(answer)}>
           <input
             className="form-check-input"
-            checked={answer === savedAnswers.find((answer) => answer.questionId === currentQuestionId)?.answers[0]}
+            checked={answer === savedAnswers.find((answer) => answer.questionId === currentQuestionId)?.values[0]}
             type="radio"
             name="flexRadioDefault"
             id={`flexRadioDefault${answer}`}
