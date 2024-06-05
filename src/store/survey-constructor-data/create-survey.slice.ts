@@ -22,7 +22,7 @@ const initialState: CreateSurveyData = {
             name: "",
             type: "Checkbox",
             isRequired: false,
-            variablesAnswer: []
+            variables: []
         }]
     },
     question: [{
@@ -31,7 +31,7 @@ const initialState: CreateSurveyData = {
         tooltip: "",
         type: "",
         isRequired: false,
-        variablesAnswer: []
+        variables: []
     }]
 }
 
@@ -64,11 +64,11 @@ export const createSurveyData = createSlice({
                 state.survey.questions.splice(Number(action.payload), 1)
 
             }).addCase(deleteAnswer, (state, action) => {
-                state.survey.questions[Number(action.payload.questionId)].variablesAnswer.splice(Number(action.payload.id), 1)
+                state.survey.questions[Number(action.payload.questionId)].variables.splice(Number(action.payload.id), 1)
             }).addCase(pushAnswer, (state, action) => {
-                state.survey.questions[Number(action.payload.questionId)].variablesAnswer.push(action.payload.value)
+                state.survey.questions[Number(action.payload.questionId)].variables.push(action.payload.value)
             }).addCase(updateAnswer, (state, action) => {
-                state.survey.questions[Number(action.payload.questionId)].variablesAnswer[Number(action.payload.id)] = (action.payload.value)
+                state.survey.questions[Number(action.payload.questionId)].variables[Number(action.payload.id)] = (action.payload.value)
             }).addCase(updateQuestion, (state, action) => {
                 state.survey.questions[Number(action.payload.id)] = (action.payload)
             })

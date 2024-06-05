@@ -31,7 +31,7 @@ export default function QuestionConstructor(): JSX.Element {
             tooltip: "",
             type: "",
             isRequired: false,
-            variablesAnswer: []
+            variables: []
         }))
     }
 
@@ -39,25 +39,29 @@ export default function QuestionConstructor(): JSX.Element {
 
         console.log(questions)
 
-        return
     }
 
+
     return (
-        <>
-            <div className="question add">
+            <>
+            <div className="question">
+
+            <div className="answers-list">
 
                 {questions?.map((question, index) => (<Question
                     id={String(index)}
                     name={question.name}
                     type={question.type}
                     isRequired={question.isRequired}
-                    variablesAnswer={question.variablesAnswer}
+                    variables={question.variables}
                 />
                 ))}
                 <button className="add-btn" onClick={() => handleAddQuestion(String(questions?.length))}>+</button>
 
-            </div>
-        </>
-    )
-}
+               
+                </div>
+                </div>
+            </>
+            )
 
+}

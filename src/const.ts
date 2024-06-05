@@ -10,8 +10,6 @@ export enum AppRoute {
   NotFound = '*',
   SurveyCompleting = 'survey-completing',
   СonstructorQuestions = 'survey-constructor-second-step',
-
-
 }
 
 // Статусы авторизации
@@ -24,11 +22,12 @@ export enum AuthorizationStatus {
 export enum NameSpace {
   User = 'USER',
   Creating = 'CREATING-SURVEY',
-  Passing = 'PASSING-SURVEY'
+  Passing = 'PASSING-SURVEY',
 }
 
 export enum APIRoute {
   Surveys = '/Surveys',
-  PostAnswers = '/post-answers'
+  PostAnswers = '/post-answers',
   CreateSurveys = '/Surveys/create'
+
 }

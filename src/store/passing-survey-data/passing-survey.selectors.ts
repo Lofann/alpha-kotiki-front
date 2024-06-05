@@ -3,7 +3,6 @@ import { NameSpace } from "../../const";
 import SurveyCards from "../../types/survey-cards";
 import { Answers } from "../../types/answers";
 import { SurveyCard } from "../../types/survey-card";
-import { Survey } from "../../types/survey";
 
 export const getSurveys = (state: Pick<State, NameSpace.Passing>): SurveyCards => state[NameSpace.Passing].surveys
 

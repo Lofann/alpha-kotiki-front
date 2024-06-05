@@ -3,7 +3,6 @@ import { FormEvent, useRef, useState } from "react"
 import QuestionProps from "./question.props";
 
 // import { QuestionType } from "../../const";
-import AnswerProps from "../answer/answer.props";
 import { PossibleAnswer } from "../../types/answer";
 import DropDownListQuestion from "../questions/drop-down-list";
 import { useAppDispatch } from "../../hooks/store";
@@ -18,7 +17,7 @@ export default function Question({ id,
     tooltip,
     type,
     isRequired,
-    variablesAnswer }: QuestionType) {
+    variables: variablesAnswer }: QuestionType) {
 
     const dispatch = useAppDispatch()
 
@@ -58,7 +57,7 @@ export default function Question({ id,
             name: update_name,
             type: update_type,
             isRequired: update_isRequired,
-            variablesAnswer: variablesAnswer
+            variables: variablesAnswer
 
         }))
     }
