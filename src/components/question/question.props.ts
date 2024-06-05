@@ -6,7 +6,7 @@ type Question = {
     name: string,
     tooltip?: string,
     //type: QuestionType,
-    type:string
+    type:string,
     isRequired: boolean,
     // variablesAnswer: Array<PossibleAnswer>,
     variablesAnswer:Array<string>
