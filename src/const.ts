@@ -22,7 +22,7 @@ export enum AuthorizationStatus {
 export enum NameSpace {
   User = 'USER',
   Creating = 'CREATING-SURVEY',
-  Passing = 'PASSING-SURVEY'
+  Passing = 'PASSING-SURVEY',
 }
 
 export enum APIRoute {

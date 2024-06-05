@@ -3,7 +3,6 @@ import { FormEvent, useRef, useState } from "react"
 import QuestionProps from "./question.props";
 
 // import { QuestionType } from "../../const";
-import AnswerProps from "../answer/answer.props";
 import { PossibleAnswer } from "../../types/answer";
 import DropDownListQuestion from "../questions/drop-down-list";
 import { useAppDispatch } from "../../hooks/store";

@@ -41,7 +41,7 @@ export default function QuestionConstructor(): JSX.Element {
 
     }
 
-export default function QuestionConstructor({ }: QuestionConstructorProps): JSX.Element {
+
     return (
             <>
             <div className="question">
@@ -64,5 +64,5 @@ export default function QuestionConstructor({ }: QuestionConstructorProps): JSX.
                 </div>
             </>
             )
-}
+
 }

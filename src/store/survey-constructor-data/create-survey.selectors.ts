@@ -1,10 +1,11 @@
 import { State } from "../../types/state";
-import { NameSpace } from "../../const";
+
 import SurveyCards from "../../types/survey-cards";
 import { Answers } from "../../types/answers";
 import { SurveyCard } from "../../types/survey-card";
 import { Survey } from "../../types/survey";
 import { Question } from "../../types/question";
+import { NameSpace } from "../../const";
 
 // export const setSurveyData = (state: Pick<State, NameSpace.Creating>):Survey|undefined => state[NameSpace.Creating].selector
 
@@ -24,11 +25,11 @@ import { Question } from "../../types/question";
 
 // export const setCompletionTimeLimitSurvey = (state: Pick<State, NameSpace.Creating>):number => state[NameSpace.Creating].CompletionTimeLimit
 
+
+
 export const createNewSurvey = (state: Pick<State, NameSpace.Creating>):Survey => state[NameSpace.Creating].survey
 
 export const getQuestions = (state: Pick<State, NameSpace.Creating>): Array<Question> | undefined => state[NameSpace.Creating].survey.questions
-
-
 
 // export const pushQuestion =(state)
 //export const saveNewSurvey = createAction<Survey>('data/survey-constructor/saveSurvey')
