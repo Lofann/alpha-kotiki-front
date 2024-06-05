@@ -45,8 +45,7 @@ export default function QuestionConstructor(): JSX.Element {
     return (
             <>
             <div className="question">
-            <div className="question-number">Вопрос 1</div>
-            <input className="question-title" type="text" placeholder="Текст Вопроса" />
+
             <div className="answers-list">
 
                 {questions?.map((question, index) => (<Question
