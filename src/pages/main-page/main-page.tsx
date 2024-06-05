@@ -15,7 +15,7 @@ export default function MainPage(): JSX.Element {
             <div className="page-title-center">Объявления</div>
             <div className="align-center font-16-px">
               Ознакомиться с публичным swagger нашего проекта и тем самым узнать больше о функционале backend-приложения 
-              вы можете по ссылке: <Link to="http://api.punkotiki.ru:8080/swagger/index.html"><span className="blue">http://api.punkotiki.ru:8080/swagger/index.html</span></Link>
+              вы можете по ссылке: <Link to="https://backend.punkotiki.ru/swagger/index.html"><span className="blue">https://backend.punkotiki.ru/swagger/index.html</span></Link>
             </div>
           </main>
         </div>
