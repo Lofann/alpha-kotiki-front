@@ -31,7 +31,7 @@ export default function QuestionConstructor(): JSX.Element {
             tooltip: "",
             type: "",
             isRequired: false,
-            variablesAnswer: []
+            variables: []
         }))
     }
 
@@ -51,7 +51,7 @@ export default function QuestionConstructor(): JSX.Element {
                     name={question.name}
                     type={question.type}
                     isRequired={question.isRequired}
-                    variablesAnswer={question.variablesAnswer}
+                    variables={question.variables}
                 />
                 ))}
                 <button className="add-btn" onClick={() => handleAddQuestion(String(questions?.length))}>+</button>
