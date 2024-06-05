@@ -1,5 +1,4 @@
-
-import { BrowserRouter, Route, Routes  } from 'react-router-dom';
+import { Route, Routes  } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import AllSurvey from '../../pages/all-survey-page/all-survey-page';
 import MainPage from '../../pages/main-page/main-page';
@@ -10,6 +9,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import PassingSurveyPage from '../../pages/passing-survey-page/passing-survey-page';
 import CompletingSurveyPage from '../../pages/completing-survey-page/completing-survey-page';
 import SurveyConstructorSecondStep from '../../pages/survey-constructor-second-step-page/survey-constructor-second-step-page';
+import browserHistory from '../../browser-history';
+import HistoryRouter from '../history-router/history-router';
 
 // Корневой компонент
 // Здесь же вся внешняя маршрутизация
@@ -18,7 +19,7 @@ export default function App(): JSX.Element {
 
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <HistoryRouter history={browserHistory}>
         <Routes>
           <Route
             path={AppRoute.Main}
@@ -37,7 +38,6 @@ export default function App(): JSX.Element {
               <Route path={AppRoute.SurveyPassing} element={<PassingSurveyPage/>}/>
               <Route path={AppRoute.SurveyCompleting} element={<CompletingSurveyPage/>}/>
             </Route>
-            <Route path=':id' element={<SurveyDescriptionPage/>}/>
           </Route>
           <Route
             path={AppRoute.Сonstructor}
@@ -48,7 +48,7 @@ export default function App(): JSX.Element {
             element={<SurveyConstructorSecondStep/>}
           />
         </Routes>
-      </BrowserRouter>
+      </HistoryRouter>
     </HelmetProvider>
   )
 }

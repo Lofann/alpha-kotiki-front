@@ -39,12 +39,15 @@ export default function QuestionConstructor(): JSX.Element {
 
         console.log(questions)
 
-        return
     }
 
+export default function QuestionConstructor({ }: QuestionConstructorProps): JSX.Element {
     return (
-        <>
-            <div className="question add">
+            <>
+            <div className="question">
+            <div className="question-number">Вопрос 1</div>
+            <input className="question-title" type="text" placeholder="Текст Вопроса" />
+            <div className="answers-list">
 
                 {questions?.map((question, index) => (<Question
                     id={String(index)}
@@ -56,8 +59,10 @@ export default function QuestionConstructor(): JSX.Element {
                 ))}
                 <button className="add-btn" onClick={() => handleAddQuestion(String(questions?.length))}>+</button>
 
-            </div>
-        </>
-    )
+               
+                </div>
+                </div>
+            </>
+            )
 }
-
+}

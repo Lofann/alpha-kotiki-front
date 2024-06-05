@@ -1,13 +1,10 @@
-import { PossibleAnswer } from "./answer"
-
 //Тип вопроса
 export type Question = {
   id: string,
   name: string,
   tooltip?: string,
-  //type: QuestionType,
-  type:string
+  // type: 'Checkbox' | 'RadioButton' | 'DropDownList',
+  type: string //Пусть пока будет string, надо создать enum для хранения типов. Поле type много где используется, добавлять новый тип - ужас
   isRequired: boolean,
-  //variables: Array<PossibleAnswer>,
-  variables:Array<string>
+  variables: string[],
 }
