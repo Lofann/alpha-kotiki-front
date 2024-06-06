@@ -2,6 +2,13 @@
   font-size: 16px;
 }
 
+.constructor{
+  background-color: #FFF;
+  border: 1px solid #005bff;
+  border-radius: 40px;
+  padding: 50px;
+}
+
 .survey-name {
   padding-top: 12px;
 }

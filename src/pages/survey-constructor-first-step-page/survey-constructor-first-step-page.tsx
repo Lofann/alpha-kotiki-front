@@ -1,6 +1,14 @@
 import Header from "../../components/header/header"
 import { FormEvent, useRef, useState } from "react"
 import { Helmet } from "react-helmet-async";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom"
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
+import { createNewSurvey } from "../../store/survey-constructor-data/create-survey.selectors";
+import { Survey } from "../../types/survey";
+import { saveNewSurvey } from "../../store/action";
+import { Type } from "typescript";
+// import { setCompletionTimeLimitSurvey, setDescriptionSurvey, setIsLimitedCompletionTimeSurvey, setIsLimitedPublicationTimeSurvey, setNameSurvey, setPriceSurvey, setPublicationTimeLimitSurvey, setUsagesLimitSurvey } from "../../store/survey-constructor-data/create-survey.selectors";
 
 //Компонент с созданием опроса(описание)
 export default function SurveyConstructorFirstStep(): JSX.Element {
@@ -10,14 +18,54 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
   const priceRef = useRef<HTMLInputElement>(null);
   const timeRef = useRef<HTMLInputElement>(null);
   const dateRef = useRef<HTMLInputElement>(null);
-  const audienceRef = useRef<HTMLInputElement>(null);
-  const [audienceOfMen, setAudienceOfMen] = useState(false);
-  const [audienceOfWomen, setAudienceOfWomen] = useState(false);
-  const [isPopular, setIsPopular] = useState(false);
-  
+  const usagesLimitRef = useRef<HTMLInputElement>(null);
+  // const isLimitedCompletionTimeRef = useRef<HTMLInputElement>(null);
+  const completionTimeLimitRef = useRef<HTMLInputElement>(null);
+  const [isLimitedCompletionTimeRef, setIsLimitedCompletionTimeRef] = useState(false);
+  // const [audienceOfWomen, setAudienceOfWomen] = useState(false);
+  // const [isPopular, setIsPopular] = useState(false);
+
+  const navigate = useNavigate();
+
+  const normalizeStringData = (data: React.RefObject<HTMLInputElement>) => {
+    return data.current?.value === undefined ? '' : data.current?.value
+  }
+
+  const normalizeTextData = (data: React.RefObject<HTMLTextAreaElement>) => {
+    return data.current?.value === undefined ? '' : data.current?.value
+  }
+
+  const normalizeNumberData = (data: React.RefObject<HTMLInputElement>): number => {
+    return data.current?.value === undefined ? 0 : data.current?.valueAsNumber
+  }
+
+  const validateTimeLimit = (data: React.RefObject<HTMLInputElement>): boolean => {
+    return data.current?.valueAsDate !== undefined
+  }
+
+  const normalizeTimeLimit = (data: React.RefObject<HTMLInputElement>): Date | null => {
+    return data.current?.valueAsDate === undefined ? new Date() : data.current?.valueAsDate
+  }
+
   //Отправка формы
   const handleNextButtonClick = (evt: FormEvent<HTMLButtonElement>) => {
     evt.preventDefault()
+
+    let data: Survey = {
+      name: normalizeStringData(nameRef),
+      creatorId: "",
+      description: normalizeTextData(descriptionRef),
+      price: normalizeNumberData(priceRef),
+      isLimitedPublicationTime: true,
+      publicationTimeLimit: normalizeTimeLimit(dateRef),
+      usagesLimit: normalizeNumberData(usagesLimitRef),
+      isLimitedCompletionTime: isLimitedCompletionTimeRef,
+      completionTimeLimit: normalizeNumberData(completionTimeLimitRef),
+      questions: [],
+
+    }
+    dispatch(saveNewSurvey(data))
+
     // логи для демонстрации, пока нет хранилища
     console.log('State')
     console.log(`Название: ${nameRef.current?.value}`)
@@ -25,28 +73,43 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
     console.log(`Цена: ${priceRef.current?.value}`);
     console.log(`Время: ${timeRef.current?.value}`);
     console.log(`Дата окончания: ${dateRef.current?.value}`);
-    console.log(`Целевая аудитория: ${audienceOfMen? 'Мужчины': ''} ${audienceOfWomen? 'Женщины': ''}`);
-    console.log(`Вывести в популярное?: ${isPopular? 'Да': 'Нет'}`);
+    // console.log(`Целевая аудитория: ${audienceOfMen ? 'Мужчины' : ''} ${audienceOfWomen ? 'Женщины' : ''}`);
+    // console.log(`Вывести в популярное?: ${isPopular ? 'Да' : 'Нет'}`);
     // диспатч в хранилище
     // редирект на второй этап
+    return navigate(`/survey-constructor-second-step`);
   }
+
+  const dispatch = useAppDispatch()
+  const newSurvey = useAppSelector(createNewSurvey)
+  // const name = useAppSelector(setNameSurvey)
+  // const description = useAppSelector(setDescriptionSurvey)
+  // const price = useAppSelector(setPriceSurvey)
+  // const isLimitedPublicationTime = useAppSelector(setIsLimitedPublicationTimeSurvey)
+  // const publicationTimeLimit = useAppSelector(setPublicationTimeLimitSurvey)
+  // const usagesLimit = useAppSelector(setUsagesLimitSurvey)
+  // const isLimitedCompletionTime = useAppSelector(setIsLimitedCompletionTimeSurvey)
+  // const completionTimeLimit = useAppSelector(setCompletionTimeLimitSurvey)
+
+
+
 
   return (
     <>
       <Helmet>
         <title>Создание опроса</title>
       </Helmet>
-      <Header/>
-      <div className="wrapper">
-        <section className="container">
+      <Header />
+      <div className="wrapper ">
+        <section className="container constructor">
           <main>
-            <ul className="breadcrumbs">
+            {/* <ul className="breadcrumbs">
               <li className="breadcrumbs-item">Личный кабинет</li>
               <li className="breadcrumbs-item">/</li>
               <li className="breadcrumbs-item">Создать новый опрос</li>
               <li className="breadcrumbs-item">/</li>
               <li className="breadcrumbs-item">Редактор вопросов</li>
-            </ul>
+            </ul> */}
             <h1>Создание нового опроса</h1>
             <h2>Заполняем основную информацию</h2>
             <form className="survey-constructor">
@@ -65,7 +128,8 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                         className="field name-field"
                         placeholder="Введите название"
                         required={true}
-                        defaultValue={""}
+                        defaultValue={newSurvey.name}
+                        onChange={e => e}
                       />
                       <p className="required-field memo">
                         Поля, отмеченные знаком * , обязательны для заполнения{" "}
@@ -81,7 +145,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                         ref={descriptionRef}
                         className="field description-field"
                         placeholder="Введите описание"
-                        defaultValue={""}
+                        defaultValue={newSurvey.description}
                       />
                     </div>
                   </div>
@@ -100,25 +164,65 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                         className="field price-field"
                         placeholder="Введите стоимость в рублях"
                         required={true}
-                        defaultValue={""}
+                        defaultValue={newSurvey.price}
                       />
                     </div>
                   </div>
-                  <div className="survey-time">
+                  <div className="survey-price">
                     <div>
                       <label>
-                        Длительность опроса<span className="required-field">*</span>
+                        Количество прохождений
+                        <span className="field">*</span>
                       </label>
                     </div>
                     <div>
                       <input
-                        ref={timeRef}
-                        type="time"
-                        className="field time-field"
-                        placeholder="Длительность опроса"
+                        ref={usagesLimitRef}
+                        type="number"
+                        className="field price-field"
+                        placeholder="Введите стоимость в рублях"
                         required={true}
-                        defaultValue={""}
+                        defaultValue={newSurvey.price}
                       />
+                    </div>
+                  </div>
+
+
+                  <div className="survey-time">
+
+                    <div className="survey-audience">
+                      <label className="">
+
+                      Ограничить время прохождения 
+
+                        
+
+                      </label>
+                    
+                      <input
+                          ref={null}
+                          className=""
+                          type="checkbox"
+                          checked = {isLimitedCompletionTimeRef}
+                          onClick={() => { setIsLimitedCompletionTimeRef(!isLimitedCompletionTimeRef) }} />
+                      <div>
+                        
+                        <label className="">
+                          Длительность опроса (мин) <span className="required-field">*</span>
+                        </label>
+                      </div>
+                      <div>
+                        <input
+                          disabled = {!isLimitedCompletionTimeRef}
+                          ref={completionTimeLimitRef}
+                          type="number"
+                          className="field time-field"
+                          placeholder="Длительность опроса"
+                          defaultValue={newSurvey.completionTimeLimit}
+                          required={true}
+                        />
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -139,7 +243,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                   />
                 </div>
               </div>
-              <div>
+              {/* <div>
                 <div className="survey-audience">
                   <label>
                     Аудитория<span className="required-field">*</span>
@@ -152,7 +256,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                       type="checkbox"
                       defaultValue="audience"
                       value={""}
-                      onClick={() => {setAudienceOfMen(!audienceOfMen)}}
+                      // onClick={() => { setAudienceOfMen(!audienceOfMen) }}
                     />
                     <span className="custom-checkbox" />
                     Мужчины
@@ -165,7 +269,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                       type="checkbox"
                       defaultValue="audience"
                       value={""}
-                      onClick={() => {setAudienceOfWomen(!audienceOfWomen)}}
+                      // onClick={() => { setAudienceOfWomen(!audienceOfWomen) }}
                     />
                     <span className="custom-checkbox" />
                     Женщины
@@ -175,7 +279,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
               <div>
                 <div className="survey-popularity">
                   <label>
-                    Вывести опрос в 
+                    Вывести опрос в
                     <label style={{ color: "#005bff" }}> "Популярное"</label>?
                     <span className="required-field">*</span>
                   </label>
@@ -188,7 +292,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                       type="radio"
                       defaultValue="is-popular"
                       value={""}
-                      onClick={() => setIsPopular(!isPopular)}
+                      // onClick={() => setIsPopular(!isPopular)}
                     />
                     <span className="custom-radio" />
                     Да
@@ -201,7 +305,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                       type="radio"
                       defaultValue="is-not-popular"
                       value={""}
-                      onClick={() => setIsPopular(!isPopular)}
+                      // onClick={() => setIsPopular(!isPopular)}
                     />
                     <span className="custom-radio" />
                     Нет
@@ -231,7 +335,7 @@ export default function SurveyConstructorFirstStep(): JSX.Element {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="survey-buttons">
                 <button type="reset" className="button-return">
                   Вернуться

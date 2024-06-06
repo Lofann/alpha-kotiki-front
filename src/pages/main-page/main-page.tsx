@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Header from "../../components/header/header"
 import { Helmet } from "react-helmet-async"
 
@@ -9,6 +10,15 @@ export default function MainPage(): JSX.Element {
         <title>Главная страница</title>
       </Helmet>
       <Header/>
+      <div className="contain-2">
+          <main className="main">
+            <div className="page-title-center">Объявления</div>
+            <div className="align-center font-16-px">
+              Ознакомиться с публичным swagger нашего проекта и тем самым узнать больше о функционале backend-приложения 
+              вы можете по ссылке: <Link to="http://api.punkotiki.ru:8080/swagger/index.html"><span className="blue">http://api.punkotiki.ru:8080/swagger/index.html</span></Link>
+            </div>
+          </main>
+        </div>
     </>
   )
 }

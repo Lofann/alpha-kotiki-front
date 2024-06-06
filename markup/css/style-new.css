@@ -74,6 +74,26 @@ a {
   }
 }
 
+.page-title-left {
+  font-size: 36px;
+  text-align: left;
+  margin-bottom: 48px;
+}
+
+.page-title-center {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.title-2 {
+  font-size: 24px;
+}
+
+.indentation-page-title {
+  margin-top: 20px;
+}
+
 .hidden {
   visibility: hidden;
 }
@@ -83,6 +103,7 @@ a {
   border-radius: 24px;
   font-size: 16px;
   color: var(--main-white-color);
+  line-height: 88%;
 }
 
 .btn-dflt {
@@ -107,4 +128,20 @@ a {
     transition-duration: 500ms;
     box-shadow: 0px 0px 10px rgb(0, 91, 255);
   }
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.blue {
+  color: var(--main-blue-color)
 }
