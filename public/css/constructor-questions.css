@@ -1,0 +1,261 @@
+.left-title {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.question-list{
+    max-width: 800px; 
+    margin-top: 40px;
+}
+
+.question {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid #005BFF;
+    max-width: 800px;
+    padding: 27px;
+    padding-bottom: 50px;
+    margin-bottom: 42px;
+    background-color: #FFF;
+}
+
+.question-number {
+    color: #fffFff;
+    border-radius: 20px;
+    background: #C5C5C5;
+    padding: 5px;
+    margin-bottom: 16px;
+    text-align: center;
+    min-width: 110px;
+    width: calc(100%/7);
+    color: var(--icon-color, #FFF);
+
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+
+}
+
+.question-title{ 
+    width: 100%;
+
+    height: 32px;
+    font-size: 24px;
+
+    margin-bottom: 32px;
+    
+    border: 0px solid #757575;
+    border-bottom:1px solid #757575 ;
+    padding-left: 16px;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
+.question-title:active, :focus{
+    outline:none;
+    border: 0px solid #757575;
+    border-bottom:1px solid #005BFF ;
+}
+
+.answers-list{
+    font-size: 16px;
+    max-width: 800px; 
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0px;
+    margin-bottom:32px;
+}
+
+.answer{
+    padding: 5px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border: none;
+    border-bottom:1px #757575;
+}
+
+.emphasized{
+    border-bottom: 1px solid #757575;
+}
+
+.answer-text{
+    
+    width: 100%;
+    outline: none;
+    border: 0px solid #FFF;
+}
+
+.answer-delete{
+    border: none;
+    background-color: #FFF;
+    color: #757575;
+}
+
+.answer-type{
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #757575;
+    background-color: #FFF;
+    width: 20px;
+}
+
+.answer-add{
+    padding-right:15px;
+    padding-left: 15px;
+    font-size: 20px;
+    background-color: #005BFF;
+    color: #FFF;
+    border:1px solid #005BFF ;
+    border-radius: 25px;
+    outline: none;
+}
+.answer-add-another{
+    color: #005BFF;
+}
+
+.adding{
+    margin-top: 16px;
+    width: 100%;
+}
+
+.question-settings{
+    margin-top: 20px;
+    font-size: 14px;
+    display: flex;
+    text-align: center;
+    padding-top: auto;
+    justify-content: space-between;
+
+    align-items: center;
+
+
+}
+
+.right-settings{
+    display: flex;
+    align-items: center;
+}
+
+i{
+    color: #757575;
+    font-size: 20px;
+}
+
+.switch-box{
+    display: block;
+    
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.choice-question-type{
+    height: 40px;
+    min-width: 210px;
+    display: inline-flex;
+    text-align: center;
+
+    border-radius: 10px;
+    border: 1px solid #757575;
+    padding-left: 16px;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 16px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #757575;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .07s;
+  transition: .07s;
+}
+
+input:checked + .slider {
+  background-color: #005BFF;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #005BFF;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 28px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.vertical-line{
+    border-left: 1px solid #757575 ;
+    height: 100%;
+}
+
+.add{
+    text-align: center;
+}
+
+.add-btn{
+    text-align: center;
+    border: 0px solid #005BFF;
+    border-radius: 100%;
+    background-color: #005BFF;
+    height: 38px;
+    width: 38px;
+    color:#FFF;
+    font-size: 20px;
+}
