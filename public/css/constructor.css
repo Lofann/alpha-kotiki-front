@@ -27,6 +27,13 @@
   cursor: pointer;
 }
 
+.constructor{
+   background-color: #FFF;
+  border: 1px solid #FFF;
+  border-radius: 40px;
+  padding: 50px;
+
+}
 
 
 .memo {
